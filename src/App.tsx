@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+import DrugListContainer from "./components/DrugList";
+import DrugContainer from "./components/Drug";
+import ProteinTargetContainer from "./components/ProteinTarget";
+import VariantTargetContainer from "./components/VariantTarget";
+// import GridLayout from 'react-grid-layout';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+const App = () => {
+  const [drug_id, set_drug_Id] = React.useState("");
+  const [protein_target_id, set_protein_target_Id] = React.useState("");
+    const [variant_target_id, set_variant_target_Id] = React.useState("");
+
+    const handleDrugIdChange = React.useCallback(newId => {
+    set_drug_Id(newId);
+  }, []);
+  const handleProteinTargetIdChange = React.useCallback(newId => {
+      set_protein_target_Id(newId);
+    }, []);
+    const handleVariantTargetIdChange = React.useCallback(newId => {
+        set_variant_target_Id(newId);
+    }, []);
+
+    return (
+      <div className="App">
+
+        <DrugListContainer  handleDrugIdChange={handleDrugIdChange} />
+        <DrugContainer id={drug_id} handleProteinTargetIdChange ={handleProteinTargetIdChange} handleVariantTargetIdChange={handleVariantTargetIdChange}/>
+        <ProteinTargetContainer id={protein_target_id} handleDrugIdChange={handleDrugIdChange}/>
+        <VariantTargetContainer id={variant_target_id } handleDrugIdChange={handleDrugIdChange}/>
+
+      </div>
   );
 }
 

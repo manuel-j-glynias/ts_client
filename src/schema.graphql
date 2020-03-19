@@ -1,0 +1,4378 @@
+schema {
+  query: QueryType
+  mutation: MutationType
+}
+
+# This directive allows results to be deferred during execution
+directive @defer on FIELD
+# Relationship
+directive @relation on FIELD
+# default value
+directive @defaultValue on FIELD
+# field is unique in type
+directive @isUnique on FIELD
+# entity is a model type
+directive @model on FIELD
+# Cypher query to run
+directive @cypher on FIELD
+# Enable query profiling
+directive @profile on QUERY
+# Enable query explanation
+directive @explain on QUERY
+# Specify Cypher version
+directive @version(
+  # Cypher Version (3.0, 3.1, 3.2)
+  version: String = "3.4"
+) on QUERY
+# Filter Input Type for Author
+input _AuthorFilter {
+  # AND
+  AND: [_AuthorFilter!]
+  # OR
+  OR: [_AuthorFilter!]
+  # first_initial
+  first_initial: String
+  # first_initial_contains
+  first_initial_contains: String
+  # first_initial_ends_with
+  first_initial_ends_with: String
+  # first_initial_gt
+  first_initial_gt: String
+  # first_initial_gte
+  first_initial_gte: String
+  # first_initial_in
+  first_initial_in: [String!]
+  # first_initial_lt
+  first_initial_lt: String
+  # first_initial_lte
+  first_initial_lte: String
+  # first_initial_not
+  first_initial_not: String
+  # first_initial_not_contains
+  first_initial_not_contains: String
+  # first_initial_not_ends_with
+  first_initial_not_ends_with: String
+  # first_initial_not_in
+  first_initial_not_in: [String!]
+  # first_initial_not_starts_with
+  first_initial_not_starts_with: String
+  # first_initial_starts_with
+  first_initial_starts_with: String
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # middle_initial
+  middle_initial: String
+  # middle_initial_contains
+  middle_initial_contains: String
+  # middle_initial_ends_with
+  middle_initial_ends_with: String
+  # middle_initial_gt
+  middle_initial_gt: String
+  # middle_initial_gte
+  middle_initial_gte: String
+  # middle_initial_in
+  middle_initial_in: [String!]
+  # middle_initial_lt
+  middle_initial_lt: String
+  # middle_initial_lte
+  middle_initial_lte: String
+  # middle_initial_not
+  middle_initial_not: String
+  # middle_initial_not_contains
+  middle_initial_not_contains: String
+  # middle_initial_not_ends_with
+  middle_initial_not_ends_with: String
+  # middle_initial_not_in
+  middle_initial_not_in: [String!]
+  # middle_initial_not_starts_with
+  middle_initial_not_starts_with: String
+  # middle_initial_starts_with
+  middle_initial_starts_with: String
+  # references
+  references: _LiteratureReferenceFilter
+  # references_every
+  references_every: _LiteratureReferenceFilter
+  # references_in
+  references_in: _LiteratureReferenceFilter
+  # references_none
+  references_none: _LiteratureReferenceFilter
+  # references_not
+  references_not: _LiteratureReferenceFilter
+  # references_not_in
+  references_not_in: _LiteratureReferenceFilter
+  # references_single
+  references_single: _LiteratureReferenceFilter
+  # references_some
+  references_some: _LiteratureReferenceFilter
+  # surname
+  surname: String
+  # surname_contains
+  surname_contains: String
+  # surname_ends_with
+  surname_ends_with: String
+  # surname_gt
+  surname_gt: String
+  # surname_gte
+  surname_gte: String
+  # surname_in
+  surname_in: [String!]
+  # surname_lt
+  surname_lt: String
+  # surname_lte
+  surname_lte: String
+  # surname_not
+  surname_not: String
+  # surname_not_contains
+  surname_not_contains: String
+  # surname_not_ends_with
+  surname_not_ends_with: String
+  # surname_not_in
+  surname_not_in: [String!]
+  # surname_not_starts_with
+  surname_not_starts_with: String
+  # surname_starts_with
+  surname_starts_with: String
+}
+
+# Ordering Enum for Author
+enum _AuthorOrdering {
+  # Ascending sort for first_initial
+  first_initial_asc
+  # Descending sort for first_initial
+  first_initial_desc
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for middle_initial
+  middle_initial_asc
+  # Descending sort for middle_initial
+  middle_initial_desc
+  # Ascending sort for surname
+  surname_asc
+  # Descending sort for surname
+  surname_desc
+}
+
+# Filter Input Type for Drug
+input _DrugFilter {
+  # AND
+  AND: [_DrugFilter!]
+  # OR
+  OR: [_DrugFilter!]
+  # annotationDate
+  annotationDate: String
+  # annotationDate_contains
+  annotationDate_contains: String
+  # annotationDate_ends_with
+  annotationDate_ends_with: String
+  # annotationDate_gt
+  annotationDate_gt: String
+  # annotationDate_gte
+  annotationDate_gte: String
+  # annotationDate_in
+  annotationDate_in: [String!]
+  # annotationDate_lt
+  annotationDate_lt: String
+  # annotationDate_lte
+  annotationDate_lte: String
+  # annotationDate_not
+  annotationDate_not: String
+  # annotationDate_not_contains
+  annotationDate_not_contains: String
+  # annotationDate_not_ends_with
+  annotationDate_not_ends_with: String
+  # annotationDate_not_in
+  annotationDate_not_in: [String!]
+  # annotationDate_not_starts_with
+  annotationDate_not_starts_with: String
+  # annotationDate_starts_with
+  annotationDate_starts_with: String
+  # concept
+  concept: String
+  # concept_contains
+  concept_contains: String
+  # concept_ends_with
+  concept_ends_with: String
+  # concept_gt
+  concept_gt: String
+  # concept_gte
+  concept_gte: String
+  # concept_in
+  concept_in: [String!]
+  # concept_lt
+  concept_lt: String
+  # concept_lte
+  concept_lte: String
+  # concept_not
+  concept_not: String
+  # concept_not_contains
+  concept_not_contains: String
+  # concept_not_ends_with
+  concept_not_ends_with: String
+  # concept_not_in
+  concept_not_in: [String!]
+  # concept_not_starts_with
+  concept_not_starts_with: String
+  # concept_starts_with
+  concept_starts_with: String
+  # definition
+  definition: String
+  # definition_contains
+  definition_contains: String
+  # definition_ends_with
+  definition_ends_with: String
+  # definition_gt
+  definition_gt: String
+  # definition_gte
+  definition_gte: String
+  # definition_in
+  definition_in: [String!]
+  # definition_lt
+  definition_lt: String
+  # definition_lte
+  definition_lte: String
+  # definition_not
+  definition_not: String
+  # definition_not_contains
+  definition_not_contains: String
+  # definition_not_ends_with
+  definition_not_ends_with: String
+  # definition_not_in
+  definition_not_in: [String!]
+  # definition_not_starts_with
+  definition_not_starts_with: String
+  # definition_starts_with
+  definition_starts_with: String
+  # drugCategory
+  drugCategory: String
+  # drugCategory_contains
+  drugCategory_contains: String
+  # drugCategory_ends_with
+  drugCategory_ends_with: String
+  # drugCategory_gt
+  drugCategory_gt: String
+  # drugCategory_gte
+  drugCategory_gte: String
+  # drugCategory_in
+  drugCategory_in: [String!]
+  # drugCategory_lt
+  drugCategory_lt: String
+  # drugCategory_lte
+  drugCategory_lte: String
+  # drugCategory_not
+  drugCategory_not: String
+  # drugCategory_not_contains
+  drugCategory_not_contains: String
+  # drugCategory_not_ends_with
+  drugCategory_not_ends_with: String
+  # drugCategory_not_in
+  drugCategory_not_in: [String!]
+  # drugCategory_not_starts_with
+  drugCategory_not_starts_with: String
+  # drugCategory_starts_with
+  drugCategory_starts_with: String
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # isAntineoplastic
+  isAntineoplastic: Boolean
+  # isAntineoplastic_not
+  isAntineoplastic_not: Boolean
+  # isImmuno
+  isImmuno: Boolean
+  # isImmuno_not
+  isImmuno_not: Boolean
+  # modulator
+  modulator: String
+  # modulator_contains
+  modulator_contains: String
+  # modulator_ends_with
+  modulator_ends_with: String
+  # modulator_gt
+  modulator_gt: String
+  # modulator_gte
+  modulator_gte: String
+  # modulator_in
+  modulator_in: [String!]
+  # modulator_lt
+  modulator_lt: String
+  # modulator_lte
+  modulator_lte: String
+  # modulator_not
+  modulator_not: String
+  # modulator_not_contains
+  modulator_not_contains: String
+  # modulator_not_ends_with
+  modulator_not_ends_with: String
+  # modulator_not_in
+  modulator_not_in: [String!]
+  # modulator_not_starts_with
+  modulator_not_starts_with: String
+  # modulator_starts_with
+  modulator_starts_with: String
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+  # synonyms
+  synonyms: String
+  # synonyms_contains
+  synonyms_contains: String
+  # synonyms_ends_with
+  synonyms_ends_with: String
+  # synonyms_gt
+  synonyms_gt: String
+  # synonyms_gte
+  synonyms_gte: String
+  # synonyms_in
+  synonyms_in: [String!]
+  # synonyms_lt
+  synonyms_lt: String
+  # synonyms_lte
+  synonyms_lte: String
+  # synonyms_not
+  synonyms_not: String
+  # synonyms_not_contains
+  synonyms_not_contains: String
+  # synonyms_not_ends_with
+  synonyms_not_ends_with: String
+  # synonyms_not_in
+  synonyms_not_in: [String!]
+  # synonyms_not_starts_with
+  synonyms_not_starts_with: String
+  # synonyms_starts_with
+  synonyms_starts_with: String
+  # target
+  target: _TargetFilter
+  # target_every
+  target_every: _TargetFilter
+  # target_in
+  target_in: _TargetFilter
+  # target_none
+  target_none: _TargetFilter
+  # target_not
+  target_not: _TargetFilter
+  # target_not_in
+  target_not_in: _TargetFilter
+  # target_single
+  target_single: _TargetFilter
+  # target_some
+  target_some: _TargetFilter
+}
+
+# Ordering Enum for Drug
+enum _DrugOrdering {
+  # Ascending sort for annotationDate
+  annotationDate_asc
+  # Descending sort for annotationDate
+  annotationDate_desc
+  # Ascending sort for concept
+  concept_asc
+  # Descending sort for concept
+  concept_desc
+  # Ascending sort for definition
+  definition_asc
+  # Descending sort for definition
+  definition_desc
+  # Ascending sort for drugCategory
+  drugCategory_asc
+  # Descending sort for drugCategory
+  drugCategory_desc
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for isAntineoplastic
+  isAntineoplastic_asc
+  # Descending sort for isAntineoplastic
+  isAntineoplastic_desc
+  # Ascending sort for isImmuno
+  isImmuno_asc
+  # Descending sort for isImmuno
+  isImmuno_desc
+  # Ascending sort for modulator
+  modulator_asc
+  # Descending sort for modulator
+  modulator_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+  # Ascending sort for synonyms
+  synonyms_asc
+  # Descending sort for synonyms
+  synonyms_desc
+}
+
+# Filter Input Type for Gene
+input _GeneFilter {
+  # AND
+  AND: [_GeneFilter!]
+  # OR
+  OR: [_GeneFilter!]
+  # chromosome
+  chromosome: String
+  # chromosome_contains
+  chromosome_contains: String
+  # chromosome_ends_with
+  chromosome_ends_with: String
+  # chromosome_gt
+  chromosome_gt: String
+  # chromosome_gte
+  chromosome_gte: String
+  # chromosome_in
+  chromosome_in: [String!]
+  # chromosome_lt
+  chromosome_lt: String
+  # chromosome_lte
+  chromosome_lte: String
+  # chromosome_not
+  chromosome_not: String
+  # chromosome_not_contains
+  chromosome_not_contains: String
+  # chromosome_not_ends_with
+  chromosome_not_ends_with: String
+  # chromosome_not_in
+  chromosome_not_in: [String!]
+  # chromosome_not_starts_with
+  chromosome_not_starts_with: String
+  # chromosome_starts_with
+  chromosome_starts_with: String
+  # end
+  end: Int
+  # end_gt
+  end_gt: Int
+  # end_gte
+  end_gte: Int
+  # end_in
+  end_in: [Int!]
+  # end_lt
+  end_lt: Int
+  # end_lte
+  end_lte: Int
+  # end_not
+  end_not: Int
+  # end_not_in
+  end_not_in: [Int!]
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+  # reference
+  reference: _InternetReferenceFilter
+  # reference_in
+  reference_in: _InternetReferenceFilter
+  # reference_not
+  reference_not: _InternetReferenceFilter
+  # reference_not_in
+  reference_not_in: _InternetReferenceFilter
+  # start
+  start: Int
+  # start_gt
+  start_gt: Int
+  # start_gte
+  start_gte: Int
+  # start_in
+  start_in: [Int!]
+  # start_lt
+  start_lt: Int
+  # start_lte
+  start_lte: Int
+  # start_not
+  start_not: Int
+  # start_not_in
+  start_not_in: [Int!]
+  # statement
+  statement: String
+  # statement_contains
+  statement_contains: String
+  # statement_ends_with
+  statement_ends_with: String
+  # statement_gt
+  statement_gt: String
+  # statement_gte
+  statement_gte: String
+  # statement_in
+  statement_in: [String!]
+  # statement_lt
+  statement_lt: String
+  # statement_lte
+  statement_lte: String
+  # statement_not
+  statement_not: String
+  # statement_not_contains
+  statement_not_contains: String
+  # statement_not_ends_with
+  statement_not_ends_with: String
+  # statement_not_in
+  statement_not_in: [String!]
+  # statement_not_starts_with
+  statement_not_starts_with: String
+  # statement_starts_with
+  statement_starts_with: String
+  # strand
+  strand: Strand
+  # strand_in
+  strand_in: [Strand!]
+  # strand_not
+  strand_not: Strand
+  # strand_not_in
+  strand_not_in: [Strand!]
+}
+
+# Ordering Enum for Gene
+enum _GeneOrdering {
+  # Ascending sort for chromosome
+  chromosome_asc
+  # Descending sort for chromosome
+  chromosome_desc
+  # Ascending sort for end
+  end_asc
+  # Descending sort for end
+  end_desc
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+  # Ascending sort for start
+  start_asc
+  # Descending sort for start
+  start_desc
+  # Ascending sort for statement
+  statement_asc
+  # Descending sort for statement
+  statement_desc
+  # Ascending sort for strand
+  strand_asc
+  # Descending sort for strand
+  strand_desc
+}
+
+# Filter Input Type for ImmunePhenotype
+input _ImmunePhenotypeFilter {
+  # AND
+  AND: [_ImmunePhenotypeFilter!]
+  # OR
+  OR: [_ImmunePhenotypeFilter!]
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+  # proteins
+  proteins: _ProteinFilter
+  # proteins_every
+  proteins_every: _ProteinFilter
+  # proteins_in
+  proteins_in: _ProteinFilter
+  # proteins_none
+  proteins_none: _ProteinFilter
+  # proteins_not
+  proteins_not: _ProteinFilter
+  # proteins_not_in
+  proteins_not_in: _ProteinFilter
+  # proteins_single
+  proteins_single: _ProteinFilter
+  # proteins_some
+  proteins_some: _ProteinFilter
+}
+
+# Ordering Enum for ImmunePhenotype
+enum _ImmunePhenotypeOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+}
+
+# Filter Input Type for InternetReference
+input _InternetReferenceFilter {
+  # AND
+  AND: [_InternetReferenceFilter!]
+  # OR
+  OR: [_InternetReferenceFilter!]
+  # accessed_date
+  accessed_date: String
+  # accessed_date_contains
+  accessed_date_contains: String
+  # accessed_date_ends_with
+  accessed_date_ends_with: String
+  # accessed_date_gt
+  accessed_date_gt: String
+  # accessed_date_gte
+  accessed_date_gte: String
+  # accessed_date_in
+  accessed_date_in: [String!]
+  # accessed_date_lt
+  accessed_date_lt: String
+  # accessed_date_lte
+  accessed_date_lte: String
+  # accessed_date_not
+  accessed_date_not: String
+  # accessed_date_not_contains
+  accessed_date_not_contains: String
+  # accessed_date_not_ends_with
+  accessed_date_not_ends_with: String
+  # accessed_date_not_in
+  accessed_date_not_in: [String!]
+  # accessed_date_not_starts_with
+  accessed_date_not_starts_with: String
+  # accessed_date_starts_with
+  accessed_date_starts_with: String
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # shortReference
+  shortReference: String
+  # shortReference_contains
+  shortReference_contains: String
+  # shortReference_ends_with
+  shortReference_ends_with: String
+  # shortReference_gt
+  shortReference_gt: String
+  # shortReference_gte
+  shortReference_gte: String
+  # shortReference_in
+  shortReference_in: [String!]
+  # shortReference_lt
+  shortReference_lt: String
+  # shortReference_lte
+  shortReference_lte: String
+  # shortReference_not
+  shortReference_not: String
+  # shortReference_not_contains
+  shortReference_not_contains: String
+  # shortReference_not_ends_with
+  shortReference_not_ends_with: String
+  # shortReference_not_in
+  shortReference_not_in: [String!]
+  # shortReference_not_starts_with
+  shortReference_not_starts_with: String
+  # shortReference_starts_with
+  shortReference_starts_with: String
+  # statements_referenced
+  statements_referenced: _StatementWithEvidenceFilter
+  # statements_referenced_every
+  statements_referenced_every: _StatementWithEvidenceFilter
+  # statements_referenced_in
+  statements_referenced_in: _StatementWithEvidenceFilter
+  # statements_referenced_none
+  statements_referenced_none: _StatementWithEvidenceFilter
+  # statements_referenced_not
+  statements_referenced_not: _StatementWithEvidenceFilter
+  # statements_referenced_not_in
+  statements_referenced_not_in: _StatementWithEvidenceFilter
+  # statements_referenced_single
+  statements_referenced_single: _StatementWithEvidenceFilter
+  # statements_referenced_some
+  statements_referenced_some: _StatementWithEvidenceFilter
+  # web_address
+  web_address: String
+  # web_address_contains
+  web_address_contains: String
+  # web_address_ends_with
+  web_address_ends_with: String
+  # web_address_gt
+  web_address_gt: String
+  # web_address_gte
+  web_address_gte: String
+  # web_address_in
+  web_address_in: [String!]
+  # web_address_lt
+  web_address_lt: String
+  # web_address_lte
+  web_address_lte: String
+  # web_address_not
+  web_address_not: String
+  # web_address_not_contains
+  web_address_not_contains: String
+  # web_address_not_ends_with
+  web_address_not_ends_with: String
+  # web_address_not_in
+  web_address_not_in: [String!]
+  # web_address_not_starts_with
+  web_address_not_starts_with: String
+  # web_address_starts_with
+  web_address_starts_with: String
+}
+
+# Ordering Enum for InternetReference
+enum _InternetReferenceOrdering {
+  # Ascending sort for accessed_date
+  accessed_date_asc
+  # Descending sort for accessed_date
+  accessed_date_desc
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for shortReference
+  shortReference_asc
+  # Descending sort for shortReference
+  shortReference_desc
+  # Ascending sort for web_address
+  web_address_asc
+  # Descending sort for web_address
+  web_address_desc
+}
+
+# Filter Input Type for Isoform
+input _IsoformFilter {
+  # AND
+  AND: [_IsoformFilter!]
+  # OR
+  OR: [_IsoformFilter!]
+  # gene
+  gene: _GeneFilter
+  # gene_in
+  gene_in: _GeneFilter
+  # gene_not
+  gene_not: _GeneFilter
+  # gene_not_in
+  gene_not_in: _GeneFilter
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+}
+
+# Ordering Enum for Isoform
+enum _IsoformOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+}
+
+# Filter Input Type for Journal
+input _JournalFilter {
+  # AND
+  AND: [_JournalFilter!]
+  # OR
+  OR: [_JournalFilter!]
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+}
+
+# Ordering Enum for Journal
+enum _JournalOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+}
+
+# Filter Input Type for LiteratureReference
+input _LiteratureReferenceFilter {
+  # AND
+  AND: [_LiteratureReferenceFilter!]
+  # DOI
+  DOI: String
+  # DOI_contains
+  DOI_contains: String
+  # DOI_ends_with
+  DOI_ends_with: String
+  # DOI_gt
+  DOI_gt: String
+  # DOI_gte
+  DOI_gte: String
+  # DOI_in
+  DOI_in: [String!]
+  # DOI_lt
+  DOI_lt: String
+  # DOI_lte
+  DOI_lte: String
+  # DOI_not
+  DOI_not: String
+  # DOI_not_contains
+  DOI_not_contains: String
+  # DOI_not_ends_with
+  DOI_not_ends_with: String
+  # DOI_not_in
+  DOI_not_in: [String!]
+  # DOI_not_starts_with
+  DOI_not_starts_with: String
+  # DOI_starts_with
+  DOI_starts_with: String
+  # OR
+  OR: [_LiteratureReferenceFilter!]
+  # PMID
+  PMID: String
+  # PMID_contains
+  PMID_contains: String
+  # PMID_ends_with
+  PMID_ends_with: String
+  # PMID_gt
+  PMID_gt: String
+  # PMID_gte
+  PMID_gte: String
+  # PMID_in
+  PMID_in: [String!]
+  # PMID_lt
+  PMID_lt: String
+  # PMID_lte
+  PMID_lte: String
+  # PMID_not
+  PMID_not: String
+  # PMID_not_contains
+  PMID_not_contains: String
+  # PMID_not_ends_with
+  PMID_not_ends_with: String
+  # PMID_not_in
+  PMID_not_in: [String!]
+  # PMID_not_starts_with
+  PMID_not_starts_with: String
+  # PMID_starts_with
+  PMID_starts_with: String
+  # authors
+  authors: _AuthorFilter
+  # authors_every
+  authors_every: _AuthorFilter
+  # authors_in
+  authors_in: _AuthorFilter
+  # authors_none
+  authors_none: _AuthorFilter
+  # authors_not
+  authors_not: _AuthorFilter
+  # authors_not_in
+  authors_not_in: _AuthorFilter
+  # authors_single
+  authors_single: _AuthorFilter
+  # authors_some
+  authors_some: _AuthorFilter
+  # first_page
+  first_page: String
+  # first_page_contains
+  first_page_contains: String
+  # first_page_ends_with
+  first_page_ends_with: String
+  # first_page_gt
+  first_page_gt: String
+  # first_page_gte
+  first_page_gte: String
+  # first_page_in
+  first_page_in: [String!]
+  # first_page_lt
+  first_page_lt: String
+  # first_page_lte
+  first_page_lte: String
+  # first_page_not
+  first_page_not: String
+  # first_page_not_contains
+  first_page_not_contains: String
+  # first_page_not_ends_with
+  first_page_not_ends_with: String
+  # first_page_not_in
+  first_page_not_in: [String!]
+  # first_page_not_starts_with
+  first_page_not_starts_with: String
+  # first_page_starts_with
+  first_page_starts_with: String
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # journal
+  journal: _JournalFilter
+  # journal_in
+  journal_in: _JournalFilter
+  # journal_not
+  journal_not: _JournalFilter
+  # journal_not_in
+  journal_not_in: _JournalFilter
+  # last_page
+  last_page: String
+  # last_page_contains
+  last_page_contains: String
+  # last_page_ends_with
+  last_page_ends_with: String
+  # last_page_gt
+  last_page_gt: String
+  # last_page_gte
+  last_page_gte: String
+  # last_page_in
+  last_page_in: [String!]
+  # last_page_lt
+  last_page_lt: String
+  # last_page_lte
+  last_page_lte: String
+  # last_page_not
+  last_page_not: String
+  # last_page_not_contains
+  last_page_not_contains: String
+  # last_page_not_ends_with
+  last_page_not_ends_with: String
+  # last_page_not_in
+  last_page_not_in: [String!]
+  # last_page_not_starts_with
+  last_page_not_starts_with: String
+  # last_page_starts_with
+  last_page_starts_with: String
+  # publication_Year
+  publication_Year: String
+  # publication_Year_contains
+  publication_Year_contains: String
+  # publication_Year_ends_with
+  publication_Year_ends_with: String
+  # publication_Year_gt
+  publication_Year_gt: String
+  # publication_Year_gte
+  publication_Year_gte: String
+  # publication_Year_in
+  publication_Year_in: [String!]
+  # publication_Year_lt
+  publication_Year_lt: String
+  # publication_Year_lte
+  publication_Year_lte: String
+  # publication_Year_not
+  publication_Year_not: String
+  # publication_Year_not_contains
+  publication_Year_not_contains: String
+  # publication_Year_not_ends_with
+  publication_Year_not_ends_with: String
+  # publication_Year_not_in
+  publication_Year_not_in: [String!]
+  # publication_Year_not_starts_with
+  publication_Year_not_starts_with: String
+  # publication_Year_starts_with
+  publication_Year_starts_with: String
+  # shortReference
+  shortReference: String
+  # shortReference_contains
+  shortReference_contains: String
+  # shortReference_ends_with
+  shortReference_ends_with: String
+  # shortReference_gt
+  shortReference_gt: String
+  # shortReference_gte
+  shortReference_gte: String
+  # shortReference_in
+  shortReference_in: [String!]
+  # shortReference_lt
+  shortReference_lt: String
+  # shortReference_lte
+  shortReference_lte: String
+  # shortReference_not
+  shortReference_not: String
+  # shortReference_not_contains
+  shortReference_not_contains: String
+  # shortReference_not_ends_with
+  shortReference_not_ends_with: String
+  # shortReference_not_in
+  shortReference_not_in: [String!]
+  # shortReference_not_starts_with
+  shortReference_not_starts_with: String
+  # shortReference_starts_with
+  shortReference_starts_with: String
+  # statements_referenced
+  statements_referenced: _StatementWithEvidenceFilter
+  # statements_referenced_every
+  statements_referenced_every: _StatementWithEvidenceFilter
+  # statements_referenced_in
+  statements_referenced_in: _StatementWithEvidenceFilter
+  # statements_referenced_none
+  statements_referenced_none: _StatementWithEvidenceFilter
+  # statements_referenced_not
+  statements_referenced_not: _StatementWithEvidenceFilter
+  # statements_referenced_not_in
+  statements_referenced_not_in: _StatementWithEvidenceFilter
+  # statements_referenced_single
+  statements_referenced_single: _StatementWithEvidenceFilter
+  # statements_referenced_some
+  statements_referenced_some: _StatementWithEvidenceFilter
+  # title
+  title: String
+  # title_contains
+  title_contains: String
+  # title_ends_with
+  title_ends_with: String
+  # title_gt
+  title_gt: String
+  # title_gte
+  title_gte: String
+  # title_in
+  title_in: [String!]
+  # title_lt
+  title_lt: String
+  # title_lte
+  title_lte: String
+  # title_not
+  title_not: String
+  # title_not_contains
+  title_not_contains: String
+  # title_not_ends_with
+  title_not_ends_with: String
+  # title_not_in
+  title_not_in: [String!]
+  # title_not_starts_with
+  title_not_starts_with: String
+  # title_starts_with
+  title_starts_with: String
+  # volume
+  volume: String
+  # volume_contains
+  volume_contains: String
+  # volume_ends_with
+  volume_ends_with: String
+  # volume_gt
+  volume_gt: String
+  # volume_gte
+  volume_gte: String
+  # volume_in
+  volume_in: [String!]
+  # volume_lt
+  volume_lt: String
+  # volume_lte
+  volume_lte: String
+  # volume_not
+  volume_not: String
+  # volume_not_contains
+  volume_not_contains: String
+  # volume_not_ends_with
+  volume_not_ends_with: String
+  # volume_not_in
+  volume_not_in: [String!]
+  # volume_not_starts_with
+  volume_not_starts_with: String
+  # volume_starts_with
+  volume_starts_with: String
+}
+
+# Ordering Enum for LiteratureReference
+enum _LiteratureReferenceOrdering {
+  # Ascending sort for DOI
+  DOI_asc
+  # Descending sort for DOI
+  DOI_desc
+  # Ascending sort for PMID
+  PMID_asc
+  # Descending sort for PMID
+  PMID_desc
+  # Ascending sort for first_page
+  first_page_asc
+  # Descending sort for first_page
+  first_page_desc
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for last_page
+  last_page_asc
+  # Descending sort for last_page
+  last_page_desc
+  # Ascending sort for publication_Year
+  publication_Year_asc
+  # Descending sort for publication_Year
+  publication_Year_desc
+  # Ascending sort for shortReference
+  shortReference_asc
+  # Descending sort for shortReference
+  shortReference_desc
+  # Ascending sort for title
+  title_asc
+  # Descending sort for title
+  title_desc
+  # Ascending sort for volume
+  volume_asc
+  # Descending sort for volume
+  volume_desc
+}
+
+# Filter Input Type for NamedEntity
+input _NamedEntityFilter {
+  # AND
+  AND: [_NamedEntityFilter!]
+  # OR
+  OR: [_NamedEntityFilter!]
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+}
+
+# Ordering Enum for NamedEntity
+enum _NamedEntityOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+}
+
+# Filter Input Type for Pathway
+input _PathwayFilter {
+  # AND
+  AND: [_PathwayFilter!]
+  # OR
+  OR: [_PathwayFilter!]
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+  # proteins
+  proteins: _ProteinFilter
+  # proteins_every
+  proteins_every: _ProteinFilter
+  # proteins_in
+  proteins_in: _ProteinFilter
+  # proteins_none
+  proteins_none: _ProteinFilter
+  # proteins_not
+  proteins_not: _ProteinFilter
+  # proteins_not_in
+  proteins_not_in: _ProteinFilter
+  # proteins_single
+  proteins_single: _ProteinFilter
+  # proteins_some
+  proteins_some: _ProteinFilter
+}
+
+# Ordering Enum for Pathway
+enum _PathwayOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+}
+
+# Filter Input Type for Polypeptide
+input _PolypeptideFilter {
+  # AND
+  AND: [_PolypeptideFilter!]
+  # OR
+  OR: [_PolypeptideFilter!]
+  # accessionNumber
+  accessionNumber: String
+  # accessionNumber_contains
+  accessionNumber_contains: String
+  # accessionNumber_ends_with
+  accessionNumber_ends_with: String
+  # accessionNumber_gt
+  accessionNumber_gt: String
+  # accessionNumber_gte
+  accessionNumber_gte: String
+  # accessionNumber_in
+  accessionNumber_in: [String!]
+  # accessionNumber_lt
+  accessionNumber_lt: String
+  # accessionNumber_lte
+  accessionNumber_lte: String
+  # accessionNumber_not
+  accessionNumber_not: String
+  # accessionNumber_not_contains
+  accessionNumber_not_contains: String
+  # accessionNumber_not_ends_with
+  accessionNumber_not_ends_with: String
+  # accessionNumber_not_in
+  accessionNumber_not_in: [String!]
+  # accessionNumber_not_starts_with
+  accessionNumber_not_starts_with: String
+  # accessionNumber_starts_with
+  accessionNumber_starts_with: String
+  # gene
+  gene: _GeneFilter
+  # gene_in
+  gene_in: _GeneFilter
+  # gene_not
+  gene_not: _GeneFilter
+  # gene_not_in
+  gene_not_in: _GeneFilter
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+  # transcript
+  transcript: _IsoformFilter
+  # transcript_in
+  transcript_in: _IsoformFilter
+  # transcript_not
+  transcript_not: _IsoformFilter
+  # transcript_not_in
+  transcript_not_in: _IsoformFilter
+  # uniprot_id
+  uniprot_id: String
+  # uniprot_id_contains
+  uniprot_id_contains: String
+  # uniprot_id_ends_with
+  uniprot_id_ends_with: String
+  # uniprot_id_gt
+  uniprot_id_gt: String
+  # uniprot_id_gte
+  uniprot_id_gte: String
+  # uniprot_id_in
+  uniprot_id_in: [String!]
+  # uniprot_id_lt
+  uniprot_id_lt: String
+  # uniprot_id_lte
+  uniprot_id_lte: String
+  # uniprot_id_not
+  uniprot_id_not: String
+  # uniprot_id_not_contains
+  uniprot_id_not_contains: String
+  # uniprot_id_not_ends_with
+  uniprot_id_not_ends_with: String
+  # uniprot_id_not_in
+  uniprot_id_not_in: [String!]
+  # uniprot_id_not_starts_with
+  uniprot_id_not_starts_with: String
+  # uniprot_id_starts_with
+  uniprot_id_starts_with: String
+}
+
+# Ordering Enum for Polypeptide
+enum _PolypeptideOrdering {
+  # Ascending sort for accessionNumber
+  accessionNumber_asc
+  # Descending sort for accessionNumber
+  accessionNumber_desc
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+  # Ascending sort for uniprot_id
+  uniprot_id_asc
+  # Descending sort for uniprot_id
+  uniprot_id_desc
+}
+
+# Filter Input Type for Protein
+input _ProteinFilter {
+  # AND
+  AND: [_ProteinFilter!]
+  # OR
+  OR: [_ProteinFilter!]
+  # asTarget
+  asTarget: _ProteinTargetFilter
+  # asTarget_every
+  asTarget_every: _ProteinTargetFilter
+  # asTarget_in
+  asTarget_in: _ProteinTargetFilter
+  # asTarget_none
+  asTarget_none: _ProteinTargetFilter
+  # asTarget_not
+  asTarget_not: _ProteinTargetFilter
+  # asTarget_not_in
+  asTarget_not_in: _ProteinTargetFilter
+  # asTarget_single
+  asTarget_single: _ProteinTargetFilter
+  # asTarget_some
+  asTarget_some: _ProteinTargetFilter
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # location
+  location: _SubcellularLocationWithEvidenceFilter
+  # location_every
+  location_every: _SubcellularLocationWithEvidenceFilter
+  # location_in
+  location_in: _SubcellularLocationWithEvidenceFilter
+  # location_none
+  location_none: _SubcellularLocationWithEvidenceFilter
+  # location_not
+  location_not: _SubcellularLocationWithEvidenceFilter
+  # location_not_in
+  location_not_in: _SubcellularLocationWithEvidenceFilter
+  # location_single
+  location_single: _SubcellularLocationWithEvidenceFilter
+  # location_some
+  location_some: _SubcellularLocationWithEvidenceFilter
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+  # pathways
+  pathways: _PathwayFilter
+  # pathways_every
+  pathways_every: _PathwayFilter
+  # pathways_in
+  pathways_in: _PathwayFilter
+  # pathways_none
+  pathways_none: _PathwayFilter
+  # pathways_not
+  pathways_not: _PathwayFilter
+  # pathways_not_in
+  pathways_not_in: _PathwayFilter
+  # pathways_single
+  pathways_single: _PathwayFilter
+  # pathways_some
+  pathways_some: _PathwayFilter
+  # phenotype
+  phenotype: _ImmunePhenotypeFilter
+  # phenotype_in
+  phenotype_in: _ImmunePhenotypeFilter
+  # phenotype_not
+  phenotype_not: _ImmunePhenotypeFilter
+  # phenotype_not_in
+  phenotype_not_in: _ImmunePhenotypeFilter
+  # polypeptide_chains
+  polypeptide_chains: _PolypeptideFilter
+  # polypeptide_chains_every
+  polypeptide_chains_every: _PolypeptideFilter
+  # polypeptide_chains_in
+  polypeptide_chains_in: _PolypeptideFilter
+  # polypeptide_chains_none
+  polypeptide_chains_none: _PolypeptideFilter
+  # polypeptide_chains_not
+  polypeptide_chains_not: _PolypeptideFilter
+  # polypeptide_chains_not_in
+  polypeptide_chains_not_in: _PolypeptideFilter
+  # polypeptide_chains_single
+  polypeptide_chains_single: _PolypeptideFilter
+  # polypeptide_chains_some
+  polypeptide_chains_some: _PolypeptideFilter
+  # synonyms
+  synonyms: String
+  # synonyms_contains
+  synonyms_contains: String
+  # synonyms_ends_with
+  synonyms_ends_with: String
+  # synonyms_gt
+  synonyms_gt: String
+  # synonyms_gte
+  synonyms_gte: String
+  # synonyms_in
+  synonyms_in: [String!]
+  # synonyms_lt
+  synonyms_lt: String
+  # synonyms_lte
+  synonyms_lte: String
+  # synonyms_not
+  synonyms_not: String
+  # synonyms_not_contains
+  synonyms_not_contains: String
+  # synonyms_not_ends_with
+  synonyms_not_ends_with: String
+  # synonyms_not_in
+  synonyms_not_in: [String!]
+  # synonyms_not_starts_with
+  synonyms_not_starts_with: String
+  # synonyms_starts_with
+  synonyms_starts_with: String
+  # variants
+  variants: _VariantTargetFilter
+  # variants_every
+  variants_every: _VariantTargetFilter
+  # variants_in
+  variants_in: _VariantTargetFilter
+  # variants_none
+  variants_none: _VariantTargetFilter
+  # variants_not
+  variants_not: _VariantTargetFilter
+  # variants_not_in
+  variants_not_in: _VariantTargetFilter
+  # variants_single
+  variants_single: _VariantTargetFilter
+  # variants_some
+  variants_some: _VariantTargetFilter
+}
+
+# Ordering Enum for Protein
+enum _ProteinOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+  # Ascending sort for synonyms
+  synonyms_asc
+  # Descending sort for synonyms
+  synonyms_desc
+}
+
+# Filter Input Type for ProteinTarget
+input _ProteinTargetFilter {
+  # AND
+  AND: [_ProteinTargetFilter!]
+  # OR
+  OR: [_ProteinTargetFilter!]
+  # drugs
+  drugs: _DrugFilter
+  # drugs_every
+  drugs_every: _DrugFilter
+  # drugs_in
+  drugs_in: _DrugFilter
+  # drugs_none
+  drugs_none: _DrugFilter
+  # drugs_not
+  drugs_not: _DrugFilter
+  # drugs_not_in
+  drugs_not_in: _DrugFilter
+  # drugs_single
+  drugs_single: _DrugFilter
+  # drugs_some
+  drugs_some: _DrugFilter
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+  # protein
+  protein: _ProteinFilter
+  # protein_in
+  protein_in: _ProteinFilter
+  # protein_not
+  protein_not: _ProteinFilter
+  # protein_not_in
+  protein_not_in: _ProteinFilter
+}
+
+# Ordering Enum for ProteinTarget
+enum _ProteinTargetOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+}
+
+# Filter Input Type for Reference
+input _ReferenceFilter {
+  # AND
+  AND: [_ReferenceFilter!]
+  # OR
+  OR: [_ReferenceFilter!]
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # shortReference
+  shortReference: String
+  # shortReference_contains
+  shortReference_contains: String
+  # shortReference_ends_with
+  shortReference_ends_with: String
+  # shortReference_gt
+  shortReference_gt: String
+  # shortReference_gte
+  shortReference_gte: String
+  # shortReference_in
+  shortReference_in: [String!]
+  # shortReference_lt
+  shortReference_lt: String
+  # shortReference_lte
+  shortReference_lte: String
+  # shortReference_not
+  shortReference_not: String
+  # shortReference_not_contains
+  shortReference_not_contains: String
+  # shortReference_not_ends_with
+  shortReference_not_ends_with: String
+  # shortReference_not_in
+  shortReference_not_in: [String!]
+  # shortReference_not_starts_with
+  shortReference_not_starts_with: String
+  # shortReference_starts_with
+  shortReference_starts_with: String
+  # statements_referenced
+  statements_referenced: _StatementWithEvidenceFilter
+  # statements_referenced_every
+  statements_referenced_every: _StatementWithEvidenceFilter
+  # statements_referenced_in
+  statements_referenced_in: _StatementWithEvidenceFilter
+  # statements_referenced_none
+  statements_referenced_none: _StatementWithEvidenceFilter
+  # statements_referenced_not
+  statements_referenced_not: _StatementWithEvidenceFilter
+  # statements_referenced_not_in
+  statements_referenced_not_in: _StatementWithEvidenceFilter
+  # statements_referenced_single
+  statements_referenced_single: _StatementWithEvidenceFilter
+  # statements_referenced_some
+  statements_referenced_some: _StatementWithEvidenceFilter
+}
+
+# Ordering Enum for Reference
+enum _ReferenceOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for shortReference
+  shortReference_asc
+  # Descending sort for shortReference
+  shortReference_desc
+}
+
+# Filter Input Type for StatementWithEvidence
+input _StatementWithEvidenceFilter {
+  # AND
+  AND: [_StatementWithEvidenceFilter!]
+  # OR
+  OR: [_StatementWithEvidenceFilter!]
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # statement
+  statement: String
+  # statement_contains
+  statement_contains: String
+  # statement_ends_with
+  statement_ends_with: String
+  # statement_gt
+  statement_gt: String
+  # statement_gte
+  statement_gte: String
+  # statement_in
+  statement_in: [String!]
+  # statement_lt
+  statement_lt: String
+  # statement_lte
+  statement_lte: String
+  # statement_not
+  statement_not: String
+  # statement_not_contains
+  statement_not_contains: String
+  # statement_not_ends_with
+  statement_not_ends_with: String
+  # statement_not_in
+  statement_not_in: [String!]
+  # statement_not_starts_with
+  statement_not_starts_with: String
+  # statement_starts_with
+  statement_starts_with: String
+}
+
+# Ordering Enum for StatementWithEvidence
+enum _StatementWithEvidenceOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for statement
+  statement_asc
+  # Descending sort for statement
+  statement_desc
+}
+
+# Filter Input Type for SubcellularLocation
+input _SubcellularLocationFilter {
+  # AND
+  AND: [_SubcellularLocationFilter!]
+  # OR
+  OR: [_SubcellularLocationFilter!]
+  # evidence
+  evidence: _SubcellularLocationWithEvidenceFilter
+  # evidence_every
+  evidence_every: _SubcellularLocationWithEvidenceFilter
+  # evidence_in
+  evidence_in: _SubcellularLocationWithEvidenceFilter
+  # evidence_none
+  evidence_none: _SubcellularLocationWithEvidenceFilter
+  # evidence_not
+  evidence_not: _SubcellularLocationWithEvidenceFilter
+  # evidence_not_in
+  evidence_not_in: _SubcellularLocationWithEvidenceFilter
+  # evidence_single
+  evidence_single: _SubcellularLocationWithEvidenceFilter
+  # evidence_some
+  evidence_some: _SubcellularLocationWithEvidenceFilter
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+}
+
+# Ordering Enum for SubcellularLocation
+enum _SubcellularLocationOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+}
+
+# Filter Input Type for SubcellularLocationWithEvidence
+input _SubcellularLocationWithEvidenceFilter {
+  # AND
+  AND: [_SubcellularLocationWithEvidenceFilter!]
+  # OR
+  OR: [_SubcellularLocationWithEvidenceFilter!]
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # location
+  location: _SubcellularLocationFilter
+  # location_in
+  location_in: _SubcellularLocationFilter
+  # location_not
+  location_not: _SubcellularLocationFilter
+  # location_not_in
+  location_not_in: _SubcellularLocationFilter
+  # protein
+  protein: _ProteinFilter
+  # protein_in
+  protein_in: _ProteinFilter
+  # protein_not
+  protein_not: _ProteinFilter
+  # protein_not_in
+  protein_not_in: _ProteinFilter
+  # reference
+  reference: _LiteratureReferenceFilter
+  # reference_every
+  reference_every: _LiteratureReferenceFilter
+  # reference_in
+  reference_in: _LiteratureReferenceFilter
+  # reference_none
+  reference_none: _LiteratureReferenceFilter
+  # reference_not
+  reference_not: _LiteratureReferenceFilter
+  # reference_not_in
+  reference_not_in: _LiteratureReferenceFilter
+  # reference_single
+  reference_single: _LiteratureReferenceFilter
+  # reference_some
+  reference_some: _LiteratureReferenceFilter
+  # statement
+  statement: String
+  # statement_contains
+  statement_contains: String
+  # statement_ends_with
+  statement_ends_with: String
+  # statement_gt
+  statement_gt: String
+  # statement_gte
+  statement_gte: String
+  # statement_in
+  statement_in: [String!]
+  # statement_lt
+  statement_lt: String
+  # statement_lte
+  statement_lte: String
+  # statement_not
+  statement_not: String
+  # statement_not_contains
+  statement_not_contains: String
+  # statement_not_ends_with
+  statement_not_ends_with: String
+  # statement_not_in
+  statement_not_in: [String!]
+  # statement_not_starts_with
+  statement_not_starts_with: String
+  # statement_starts_with
+  statement_starts_with: String
+}
+
+# Ordering Enum for SubcellularLocationWithEvidence
+enum _SubcellularLocationWithEvidenceOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for statement
+  statement_asc
+  # Descending sort for statement
+  statement_desc
+}
+
+# Filter Input Type for Target
+input _TargetFilter {
+  # AND
+  AND: [_TargetFilter!]
+  # OR
+  OR: [_TargetFilter!]
+  # drugs
+  drugs: _DrugFilter
+  # drugs_every
+  drugs_every: _DrugFilter
+  # drugs_in
+  drugs_in: _DrugFilter
+  # drugs_none
+  drugs_none: _DrugFilter
+  # drugs_not
+  drugs_not: _DrugFilter
+  # drugs_not_in
+  drugs_not_in: _DrugFilter
+  # drugs_single
+  drugs_single: _DrugFilter
+  # drugs_some
+  drugs_some: _DrugFilter
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+}
+
+# Ordering Enum for Target
+enum _TargetOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+}
+
+# Filter Input Type for VariantTarget
+input _VariantTargetFilter {
+  # AND
+  AND: [_VariantTargetFilter!]
+  # OR
+  OR: [_VariantTargetFilter!]
+  # drugs
+  drugs: _DrugFilter
+  # drugs_every
+  drugs_every: _DrugFilter
+  # drugs_in
+  drugs_in: _DrugFilter
+  # drugs_none
+  drugs_none: _DrugFilter
+  # drugs_not
+  drugs_not: _DrugFilter
+  # drugs_not_in
+  drugs_not_in: _DrugFilter
+  # drugs_single
+  drugs_single: _DrugFilter
+  # drugs_some
+  drugs_some: _DrugFilter
+  # id
+  id: ID
+  # id_contains
+  id_contains: ID
+  # id_ends_with
+  id_ends_with: ID
+  # id_gt
+  id_gt: ID
+  # id_gte
+  id_gte: ID
+  # id_in
+  id_in: [ID!]
+  # id_lt
+  id_lt: ID
+  # id_lte
+  id_lte: ID
+  # id_not
+  id_not: ID
+  # id_not_contains
+  id_not_contains: ID
+  # id_not_ends_with
+  id_not_ends_with: ID
+  # id_not_in
+  id_not_in: [ID!]
+  # id_not_starts_with
+  id_not_starts_with: ID
+  # id_starts_with
+  id_starts_with: ID
+  # name
+  name: String
+  # name_contains
+  name_contains: String
+  # name_ends_with
+  name_ends_with: String
+  # name_gt
+  name_gt: String
+  # name_gte
+  name_gte: String
+  # name_in
+  name_in: [String!]
+  # name_lt
+  name_lt: String
+  # name_lte
+  name_lte: String
+  # name_not
+  name_not: String
+  # name_not_contains
+  name_not_contains: String
+  # name_not_ends_with
+  name_not_ends_with: String
+  # name_not_in
+  name_not_in: [String!]
+  # name_not_starts_with
+  name_not_starts_with: String
+  # name_starts_with
+  name_starts_with: String
+  # protein
+  protein: _ProteinFilter
+  # protein_in
+  protein_in: _ProteinFilter
+  # protein_not
+  protein_not: _ProteinFilter
+  # protein_not_in
+  protein_not_in: _ProteinFilter
+}
+
+# Ordering Enum for VariantTarget
+enum _VariantTargetOrdering {
+  # Ascending sort for id
+  id_asc
+  # Descending sort for id
+  id_desc
+  # Ascending sort for name
+  name_asc
+  # Descending sort for name
+  name_desc
+}
+
+# Author-Node
+type Author {
+  # internal node id
+  _id: Long
+  # first_initial of  Author
+  first_initial: String!
+  # id of  Author
+  id: ID!
+  # middle_initial of  Author
+  middle_initial: String
+  # Author references LiteratureReference
+  references(
+    # DOI of LiteratureReference
+    DOI: String
+    # DOIs is list variant of DOI of LiteratureReference
+    DOIs: [String]
+    # PMID of LiteratureReference
+    PMID: String
+    # PMIDs is list variant of PMID of LiteratureReference
+    PMIDs: [String]
+    _id: Long
+    _ids: [Long]
+    filter: _LiteratureReferenceFilter
+    first: Int
+    # first_page of LiteratureReference
+    first_page: String
+    # first_pages is list variant of first_page of LiteratureReference
+    first_pages: [String]
+    # id of LiteratureReference
+    id: ID
+    # ids is list variant of id of LiteratureReference
+    ids: [ID]
+    # last_page of LiteratureReference
+    last_page: String
+    # last_pages is list variant of last_page of LiteratureReference
+    last_pages: [String]
+    offset: Int
+    orderBy: [_LiteratureReferenceOrdering]
+    # publication_Year of LiteratureReference
+    publication_Year: String
+    # publication_Years is list variant of publication_Year of LiteratureReference
+    publication_Years: [String]
+    # shortReference of LiteratureReference
+    shortReference: String
+    # shortReferences is list variant of shortReference of LiteratureReference
+    shortReferences: [String]
+    # title of LiteratureReference
+    title: String
+    # titles is list variant of title of LiteratureReference
+    titles: [String]
+    # volume of LiteratureReference
+    volume: String
+    # volumes is list variant of volume of LiteratureReference
+    volumes: [String]
+  ): [LiteratureReference!]!
+  # surname of  Author
+  surname: String!
+}
+
+# Drug-Node
+type Drug implements NamedEntity {
+  # internal node id
+  _id: Long
+  # annotationDate of  Drug
+  annotationDate: String!
+  # concept of  Drug
+  concept: String!
+  # definition of  Drug
+  definition: String!
+  # drugCategory of  Drug
+  drugCategory: String!
+  # id of  Drug
+  id: ID!
+  # isAntineoplastic of  Drug
+  isAntineoplastic: Boolean!
+  # isImmuno of  Drug
+  isImmuno: Boolean!
+  # modulator of  Drug
+  modulator: String!
+  # name of  Drug
+  name: String!
+  # synonyms of  Drug
+  synonyms: [String]!
+  # Drug target Target
+  target(
+    _id: Long
+    _ids: [Long]
+    filter: _TargetFilter
+    first: Int
+    # id of Target
+    id: ID
+    # ids is list variant of id of Target
+    ids: [ID]
+    # name of Target
+    name: String
+    # names is list variant of name of Target
+    names: [String]
+    offset: Int
+    orderBy: [_TargetOrdering]
+  ): [Target]!
+}
+
+# Gene-Node
+type Gene implements NamedEntity & StatementWithEvidence {
+  # internal node id
+  _id: Long
+  # chromosome of  Gene
+  chromosome: String!
+  # end of  Gene
+  end: Int
+  # id of  Gene
+  id: ID!
+  # name of  Gene
+  name: String!
+  # Gene reference InternetReference
+  reference(
+    # accessed_date of InternetReference
+    accessed_date: String
+    # accessed_dates is list variant of accessed_date of InternetReference
+    accessed_dates: [String]
+    filter: _InternetReferenceFilter
+    # id of InternetReference
+    id: ID
+    # ids is list variant of id of InternetReference
+    ids: [ID]
+    orderBy: [_InternetReferenceOrdering]
+    # shortReference of InternetReference
+    shortReference: String
+    # shortReferences is list variant of shortReference of InternetReference
+    shortReferences: [String]
+    # web_address of InternetReference
+    web_address: String
+    # web_addresss is list variant of web_address of InternetReference
+    web_addresss: [String]
+  ): InternetReference!
+  # start of  Gene
+  start: Int
+  # statement of  Gene
+  statement: String!
+  # strand of  Gene
+  strand: Strand!
+}
+
+# ImmunePhenotype-Node
+type ImmunePhenotype implements NamedEntity {
+  # internal node id
+  _id: Long
+  # id of  ImmunePhenotype
+  id: ID!
+  # name of  ImmunePhenotype
+  name: String!
+  # ImmunePhenotype proteins Protein
+  proteins(
+    _id: Long
+    _ids: [Long]
+    filter: _ProteinFilter
+    first: Int
+    # id of Protein
+    id: ID
+    # ids is list variant of id of Protein
+    ids: [ID]
+    # name of Protein
+    name: String
+    # names is list variant of name of Protein
+    names: [String]
+    offset: Int
+    orderBy: [_ProteinOrdering]
+    # synonyms of Protein
+    synonyms: [String]
+    # synonymss is list variant of synonyms of Protein
+    synonymss: [[String]]
+  ): [Protein]!
+}
+
+# InternetReference-Node
+type InternetReference implements Reference {
+  # internal node id
+  _id: Long
+  # accessed_date of  InternetReference
+  accessed_date: String!
+  # id of  InternetReference
+  id: ID!
+  # shortReference of  InternetReference
+  shortReference: String!
+  # InternetReference statements_referenced StatementWithEvidence
+  statements_referenced(
+    _id: Long
+    _ids: [Long]
+    filter: _StatementWithEvidenceFilter
+    first: Int
+    # id of StatementWithEvidence
+    id: ID
+    # ids is list variant of id of StatementWithEvidence
+    ids: [ID]
+    offset: Int
+    orderBy: [_StatementWithEvidenceOrdering]
+    # statement of StatementWithEvidence
+    statement: String
+    # statements is list variant of statement of StatementWithEvidence
+    statements: [String]
+  ): [StatementWithEvidence!]!
+  # web_address of  InternetReference
+  web_address: String!
+}
+
+# Isoform-Node
+type Isoform implements NamedEntity {
+  # internal node id
+  _id: Long
+  # Isoform gene Gene
+  gene(
+    # chromosome of Gene
+    chromosome: String
+    # chromosomes is list variant of chromosome of Gene
+    chromosomes: [String]
+    # end of Gene
+    end: Int
+    # ends is list variant of end of Gene
+    ends: [Int]
+    filter: _GeneFilter
+    # id of Gene
+    id: ID
+    # ids is list variant of id of Gene
+    ids: [ID]
+    # name of Gene
+    name: String
+    # names is list variant of name of Gene
+    names: [String]
+    orderBy: [_GeneOrdering]
+    # start of Gene
+    start: Int
+    # starts is list variant of start of Gene
+    starts: [Int]
+    # statement of Gene
+    statement: String
+    # statements is list variant of statement of Gene
+    statements: [String]
+    # strand of Gene
+    strand: Strand
+    # strands is list variant of strand of Gene
+    strands: [Strand]
+  ): Gene!
+  # id of  Isoform
+  id: ID!
+  # name of  Isoform
+  name: String!
+}
+
+# Journal-Node
+type Journal implements NamedEntity {
+  # internal node id
+  _id: Long
+  # id of  Journal
+  id: ID!
+  # name of  Journal
+  name: String!
+}
+
+# LiteratureReference-Node
+type LiteratureReference implements Reference {
+  # DOI of  LiteratureReference
+  DOI: String
+  # PMID of  LiteratureReference
+  PMID: String
+  # internal node id
+  _id: Long
+  # LiteratureReference authors Author
+  authors(
+    _id: Long
+    _ids: [Long]
+    filter: _AuthorFilter
+    first: Int
+    # first_initial of Author
+    first_initial: String
+    # first_initials is list variant of first_initial of Author
+    first_initials: [String]
+    # id of Author
+    id: ID
+    # ids is list variant of id of Author
+    ids: [ID]
+    # middle_initial of Author
+    middle_initial: String
+    # middle_initials is list variant of middle_initial of Author
+    middle_initials: [String]
+    offset: Int
+    orderBy: [_AuthorOrdering]
+    # surname of Author
+    surname: String
+    # surnames is list variant of surname of Author
+    surnames: [String]
+  ): [Author!]!
+  # first_page of  LiteratureReference
+  first_page: String!
+  # id of  LiteratureReference
+  id: ID!
+  # LiteratureReference journal Journal
+  journal(
+    filter: _JournalFilter
+    # id of Journal
+    id: ID
+    # ids is list variant of id of Journal
+    ids: [ID]
+    # name of Journal
+    name: String
+    # names is list variant of name of Journal
+    names: [String]
+    orderBy: [_JournalOrdering]
+  ): Journal!
+  # last_page of  LiteratureReference
+  last_page: String!
+  # publication_Year of  LiteratureReference
+  publication_Year: String!
+  # shortReference of  LiteratureReference
+  shortReference: String!
+  # LiteratureReference statements_referenced StatementWithEvidence
+  statements_referenced(
+    _id: Long
+    _ids: [Long]
+    filter: _StatementWithEvidenceFilter
+    first: Int
+    # id of StatementWithEvidence
+    id: ID
+    # ids is list variant of id of StatementWithEvidence
+    ids: [ID]
+    offset: Int
+    orderBy: [_StatementWithEvidenceOrdering]
+    # statement of StatementWithEvidence
+    statement: String
+    # statements is list variant of statement of StatementWithEvidence
+    statements: [String]
+  ): [StatementWithEvidence!]!
+  # title of  LiteratureReference
+  title: String!
+  # volume of  LiteratureReference
+  volume: String!
+}
+
+# Long type
+scalar Long
+
+type MutationType {
+  # Adds References to Author entity
+  addAuthorReferences(id: ID!, references: [ID!]!): String
+  # Adds Target to Drug entity
+  addDrugTarget(id: ID!, target: [ID!]!): String
+  # Adds Reference to Gene entity
+  addGeneReference(id: ID!, reference: [ID!]!): String
+  # Adds Proteins to ImmunePhenotype entity
+  addImmunePhenotypeProteins(id: ID!, proteins: [ID!]!): String
+  # Adds Statements_referenced to InternetReference entity
+  addInternetReferenceStatements_referenced(
+    id: ID!
+    statements_referenced: [ID!]!
+  ): String
+  # Adds Gene to Isoform entity
+  addIsoformGene(gene: [ID!]!, id: ID!): String
+  # Adds Authors to LiteratureReference entity
+  addLiteratureReferenceAuthors(authors: [ID!]!, id: ID!): String
+  # Adds Journal to LiteratureReference entity
+  addLiteratureReferenceJournal(id: ID!, journal: [ID!]!): String
+  # Adds Statements_referenced to LiteratureReference entity
+  addLiteratureReferenceStatements_referenced(
+    id: ID!
+    statements_referenced: [ID!]!
+  ): String
+  # Adds Proteins to Pathway entity
+  addPathwayProteins(id: ID!, proteins: [ID!]!): String
+  # Adds Gene to Polypeptide entity
+  addPolypeptideGene(gene: [ID!]!, id: ID!): String
+  # Adds Transcript to Polypeptide entity
+  addPolypeptideTranscript(id: ID!, transcript: [ID!]!): String
+  # Adds AsTarget to Protein entity
+  addProteinAsTarget(asTarget: [ID!]!, id: ID!): String
+  # Adds Location to Protein entity
+  addProteinLocation(id: ID!, location: [ID!]!): String
+  # Adds Pathways to Protein entity
+  addProteinPathways(id: ID!, pathways: [ID!]!): String
+  # Adds Phenotype to Protein entity
+  addProteinPhenotype(id: ID!, phenotype: [ID!]!): String
+  # Adds Polypeptide_chains to Protein entity
+  addProteinPolypeptide_chains(id: ID!, polypeptide_chains: [ID!]!): String
+  # Adds Drugs to ProteinTarget entity
+  addProteinTargetDrugs(drugs: [ID!]!, id: ID!): String
+  # Adds Protein to ProteinTarget entity
+  addProteinTargetProtein(id: ID!, protein: [ID!]!): String
+  # Adds Variants to Protein entity
+  addProteinVariants(id: ID!, variants: [ID!]!): String
+  # Adds Statements_referenced to Reference entity
+  addReferenceStatements_referenced(
+    id: ID!
+    statements_referenced: [ID!]!
+  ): String
+  # Adds Evidence to SubcellularLocation entity
+  addSubcellularLocationEvidence(evidence: [ID!]!, id: ID!): String
+  # Adds Location to SubcellularLocationWithEvidence entity
+  addSubcellularLocationWithEvidenceLocation(id: ID!, location: [ID!]!): String
+  # Adds Protein to SubcellularLocationWithEvidence entity
+  addSubcellularLocationWithEvidenceProtein(id: ID!, protein: [ID!]!): String
+  # Adds Reference to SubcellularLocationWithEvidence entity
+  addSubcellularLocationWithEvidenceReference(
+    id: ID!
+    reference: [ID!]!
+  ): String
+  # Adds Drugs to Target entity
+  addTargetDrugs(drugs: [ID!]!, id: ID!): String
+  # Adds Drugs to VariantTarget entity
+  addVariantTargetDrugs(drugs: [ID!]!, id: ID!): String
+  # Adds Protein to VariantTarget entity
+  addVariantTargetProtein(id: ID!, protein: [ID!]!): String
+  # Creates a Author entity
+  createAuthor(
+    first_initial: String!
+    id: ID!
+    middle_initial: String
+    surname: String!
+  ): String
+  # Creates a Drug entity
+  createDrug(
+    annotationDate: String!
+    concept: String!
+    definition: String!
+    drugCategory: String!
+    id: ID!
+    isAntineoplastic: Boolean!
+    isImmuno: Boolean!
+    modulator: String!
+    name: String!
+    synonyms: [String]!
+  ): String
+  # Creates a Gene entity
+  createGene(
+    chromosome: String!
+    end: Int
+    id: ID!
+    name: String!
+    start: Int
+    statement: String!
+    strand: Strand!
+  ): String
+  # Creates a ImmunePhenotype entity
+  createImmunePhenotype(id: ID!, name: String!): String
+  # Creates a InternetReference entity
+  createInternetReference(
+    accessed_date: String!
+    id: ID!
+    shortReference: String!
+    web_address: String!
+  ): String
+  # Creates a Isoform entity
+  createIsoform(id: ID!, name: String!): String
+  # Creates a Journal entity
+  createJournal(id: ID!, name: String!): String
+  # Creates a LiteratureReference entity
+  createLiteratureReference(
+    DOI: String
+    PMID: String
+    first_page: String!
+    id: ID!
+    last_page: String!
+    publication_Year: String!
+    shortReference: String!
+    title: String!
+    volume: String!
+  ): String
+  # Creates a NamedEntity entity
+  createNamedEntity(id: ID!, name: String!): String
+  # Creates a Pathway entity
+  createPathway(id: ID!, name: String!): String
+  # Creates a Polypeptide entity
+  createPolypeptide(
+    accessionNumber: String!
+    id: ID!
+    name: String!
+    uniprot_id: String!
+  ): String
+  # Creates a Protein entity
+  createProtein(id: ID!, name: String!, synonyms: [String]!): String
+  # Creates a ProteinTarget entity
+  createProteinTarget(id: ID!, name: String!): String
+  # Creates a Reference entity
+  createReference(id: ID!, shortReference: String!): String
+  # Creates a StatementWithEvidence entity
+  createStatementWithEvidence(id: ID!, statement: String!): String
+  # Creates a SubcellularLocation entity
+  createSubcellularLocation(id: ID!, name: String!): String
+  # Creates a SubcellularLocationWithEvidence entity
+  createSubcellularLocationWithEvidence(id: ID!, statement: String!): String
+  # Creates a Target entity
+  createTarget(id: ID!, name: String!): String
+  # Creates a VariantTarget entity
+  createVariantTarget(id: ID!, name: String!): String
+  # Deletes a Author entity
+  deleteAuthor(id: ID!): String
+  # Deletes References from Author entity
+  deleteAuthorReferences(id: ID!, references: [ID!]!): String
+  # Deletes a Drug entity
+  deleteDrug(id: ID!): String
+  # Deletes Target from Drug entity
+  deleteDrugTarget(id: ID!, target: [ID!]!): String
+  # Deletes a Gene entity
+  deleteGene(id: ID!): String
+  # Deletes Reference from Gene entity
+  deleteGeneReference(id: ID!, reference: [ID!]!): String
+  # Deletes a ImmunePhenotype entity
+  deleteImmunePhenotype(id: ID!): String
+  # Deletes Proteins from ImmunePhenotype entity
+  deleteImmunePhenotypeProteins(id: ID!, proteins: [ID!]!): String
+  # Deletes a InternetReference entity
+  deleteInternetReference(id: ID!): String
+  # Deletes Statements_referenced from InternetReference entity
+  deleteInternetReferenceStatements_referenced(
+    id: ID!
+    statements_referenced: [ID!]!
+  ): String
+  # Deletes a Isoform entity
+  deleteIsoform(id: ID!): String
+  # Deletes Gene from Isoform entity
+  deleteIsoformGene(gene: [ID!]!, id: ID!): String
+  # Deletes a Journal entity
+  deleteJournal(id: ID!): String
+  # Deletes a LiteratureReference entity
+  deleteLiteratureReference(id: ID!): String
+  # Deletes Authors from LiteratureReference entity
+  deleteLiteratureReferenceAuthors(authors: [ID!]!, id: ID!): String
+  # Deletes Journal from LiteratureReference entity
+  deleteLiteratureReferenceJournal(id: ID!, journal: [ID!]!): String
+  # Deletes Statements_referenced from LiteratureReference entity
+  deleteLiteratureReferenceStatements_referenced(
+    id: ID!
+    statements_referenced: [ID!]!
+  ): String
+  # Deletes a NamedEntity entity
+  deleteNamedEntity(id: ID!): String
+  # Deletes a Pathway entity
+  deletePathway(id: ID!): String
+  # Deletes Proteins from Pathway entity
+  deletePathwayProteins(id: ID!, proteins: [ID!]!): String
+  # Deletes a Polypeptide entity
+  deletePolypeptide(id: ID!): String
+  # Deletes Gene from Polypeptide entity
+  deletePolypeptideGene(gene: [ID!]!, id: ID!): String
+  # Deletes Transcript from Polypeptide entity
+  deletePolypeptideTranscript(id: ID!, transcript: [ID!]!): String
+  # Deletes a Protein entity
+  deleteProtein(id: ID!): String
+  # Deletes AsTarget from Protein entity
+  deleteProteinAsTarget(asTarget: [ID!]!, id: ID!): String
+  # Deletes Location from Protein entity
+  deleteProteinLocation(id: ID!, location: [ID!]!): String
+  # Deletes Pathways from Protein entity
+  deleteProteinPathways(id: ID!, pathways: [ID!]!): String
+  # Deletes Phenotype from Protein entity
+  deleteProteinPhenotype(id: ID!, phenotype: [ID!]!): String
+  # Deletes Polypeptide_chains from Protein entity
+  deleteProteinPolypeptide_chains(id: ID!, polypeptide_chains: [ID!]!): String
+  # Deletes a ProteinTarget entity
+  deleteProteinTarget(id: ID!): String
+  # Deletes Drugs from ProteinTarget entity
+  deleteProteinTargetDrugs(drugs: [ID!]!, id: ID!): String
+  # Deletes Protein from ProteinTarget entity
+  deleteProteinTargetProtein(id: ID!, protein: [ID!]!): String
+  # Deletes Variants from Protein entity
+  deleteProteinVariants(id: ID!, variants: [ID!]!): String
+  # Deletes a Reference entity
+  deleteReference(id: ID!): String
+  # Deletes Statements_referenced from Reference entity
+  deleteReferenceStatements_referenced(
+    id: ID!
+    statements_referenced: [ID!]!
+  ): String
+  # Deletes a StatementWithEvidence entity
+  deleteStatementWithEvidence(id: ID!): String
+  # Deletes a SubcellularLocation entity
+  deleteSubcellularLocation(id: ID!): String
+  # Deletes Evidence from SubcellularLocation entity
+  deleteSubcellularLocationEvidence(evidence: [ID!]!, id: ID!): String
+  # Deletes a SubcellularLocationWithEvidence entity
+  deleteSubcellularLocationWithEvidence(id: ID!): String
+  # Deletes Location from SubcellularLocationWithEvidence entity
+  deleteSubcellularLocationWithEvidenceLocation(
+    id: ID!
+    location: [ID!]!
+  ): String
+  # Deletes Protein from SubcellularLocationWithEvidence entity
+  deleteSubcellularLocationWithEvidenceProtein(id: ID!, protein: [ID!]!): String
+  # Deletes Reference from SubcellularLocationWithEvidence entity
+  deleteSubcellularLocationWithEvidenceReference(
+    id: ID!
+    reference: [ID!]!
+  ): String
+  # Deletes a Target entity
+  deleteTarget(id: ID!): String
+  # Deletes Drugs from Target entity
+  deleteTargetDrugs(drugs: [ID!]!, id: ID!): String
+  # Deletes a VariantTarget entity
+  deleteVariantTarget(id: ID!): String
+  # Deletes Drugs from VariantTarget entity
+  deleteVariantTargetDrugs(drugs: [ID!]!, id: ID!): String
+  # Deletes Protein from VariantTarget entity
+  deleteVariantTargetProtein(id: ID!, protein: [ID!]!): String
+  # Merge a Author entity
+  mergeAuthor(
+    first_initial: String!
+    id: ID!
+    middle_initial: String
+    surname: String!
+  ): String
+  # Merge a Drug entity
+  mergeDrug(
+    annotationDate: String!
+    concept: String!
+    definition: String!
+    drugCategory: String!
+    id: ID!
+    isAntineoplastic: Boolean!
+    isImmuno: Boolean!
+    modulator: String!
+    name: String!
+    synonyms: [String]!
+  ): String
+  # Merge a Gene entity
+  mergeGene(
+    chromosome: String!
+    end: Int
+    id: ID!
+    name: String!
+    start: Int
+    statement: String!
+    strand: Strand!
+  ): String
+  # Merge a ImmunePhenotype entity
+  mergeImmunePhenotype(id: ID!, name: String!): String
+  # Merge a InternetReference entity
+  mergeInternetReference(
+    accessed_date: String!
+    id: ID!
+    shortReference: String!
+    web_address: String!
+  ): String
+  # Merge a Isoform entity
+  mergeIsoform(id: ID!, name: String!): String
+  # Merge a Journal entity
+  mergeJournal(id: ID!, name: String!): String
+  # Merge a LiteratureReference entity
+  mergeLiteratureReference(
+    DOI: String
+    PMID: String
+    first_page: String!
+    id: ID!
+    last_page: String!
+    publication_Year: String!
+    shortReference: String!
+    title: String!
+    volume: String!
+  ): String
+  # Merge a NamedEntity entity
+  mergeNamedEntity(id: ID!, name: String!): String
+  # Merge a Pathway entity
+  mergePathway(id: ID!, name: String!): String
+  # Merge a Polypeptide entity
+  mergePolypeptide(
+    accessionNumber: String!
+    id: ID!
+    name: String!
+    uniprot_id: String!
+  ): String
+  # Merge a Protein entity
+  mergeProtein(id: ID!, name: String!, synonyms: [String]!): String
+  # Merge a ProteinTarget entity
+  mergeProteinTarget(id: ID!, name: String!): String
+  # Merge a Reference entity
+  mergeReference(id: ID!, shortReference: String!): String
+  # Merge a StatementWithEvidence entity
+  mergeStatementWithEvidence(id: ID!, statement: String!): String
+  # Merge a SubcellularLocation entity
+  mergeSubcellularLocation(id: ID!, name: String!): String
+  # Merge a SubcellularLocationWithEvidence entity
+  mergeSubcellularLocationWithEvidence(id: ID!, statement: String!): String
+  # Merge a Target entity
+  mergeTarget(id: ID!, name: String!): String
+  # Merge a VariantTarget entity
+  mergeVariantTarget(id: ID!, name: String!): String
+  # Updates a Author entity
+  updateAuthor(
+    first_initial: String!
+    id: ID!
+    middle_initial: String
+    surname: String!
+  ): String
+  # Updates a Drug entity
+  updateDrug(
+    annotationDate: String!
+    concept: String!
+    definition: String!
+    drugCategory: String!
+    id: ID!
+    isAntineoplastic: Boolean!
+    isImmuno: Boolean!
+    modulator: String!
+    name: String!
+    synonyms: [String]!
+  ): String
+  # Updates a Gene entity
+  updateGene(
+    chromosome: String!
+    end: Int
+    id: ID!
+    name: String!
+    start: Int
+    statement: String!
+    strand: Strand!
+  ): String
+  # Updates a ImmunePhenotype entity
+  updateImmunePhenotype(id: ID!, name: String!): String
+  # Updates a InternetReference entity
+  updateInternetReference(
+    accessed_date: String!
+    id: ID!
+    shortReference: String!
+    web_address: String!
+  ): String
+  # Updates a Isoform entity
+  updateIsoform(id: ID!, name: String!): String
+  # Updates a Journal entity
+  updateJournal(id: ID!, name: String!): String
+  # Updates a LiteratureReference entity
+  updateLiteratureReference(
+    DOI: String
+    PMID: String
+    first_page: String!
+    id: ID!
+    last_page: String!
+    publication_Year: String!
+    shortReference: String!
+    title: String!
+    volume: String!
+  ): String
+  # Updates a NamedEntity entity
+  updateNamedEntity(id: ID!, name: String!): String
+  # Updates a Pathway entity
+  updatePathway(id: ID!, name: String!): String
+  # Updates a Polypeptide entity
+  updatePolypeptide(
+    accessionNumber: String!
+    id: ID!
+    name: String!
+    uniprot_id: String!
+  ): String
+  # Updates a Protein entity
+  updateProtein(id: ID!, name: String!, synonyms: [String]!): String
+  # Updates a ProteinTarget entity
+  updateProteinTarget(id: ID!, name: String!): String
+  # Updates a Reference entity
+  updateReference(id: ID!, shortReference: String!): String
+  # Updates a StatementWithEvidence entity
+  updateStatementWithEvidence(id: ID!, statement: String!): String
+  # Updates a SubcellularLocation entity
+  updateSubcellularLocation(id: ID!, name: String!): String
+  # Updates a SubcellularLocationWithEvidence entity
+  updateSubcellularLocationWithEvidence(id: ID!, statement: String!): String
+  # Updates a Target entity
+  updateTarget(id: ID!, name: String!): String
+  # Updates a VariantTarget entity
+  updateVariantTarget(id: ID!, name: String!): String
+}
+
+# NamedEntity-Node
+interface NamedEntity {
+  # internal node id
+  _id: Long
+  # id of  NamedEntity
+  id: ID!
+  # name of  NamedEntity
+  name: String!
+}
+
+# Pathway-Node
+type Pathway implements NamedEntity {
+  # internal node id
+  _id: Long
+  # id of  Pathway
+  id: ID!
+  # name of  Pathway
+  name: String!
+  # Pathway proteins Protein
+  proteins(
+    _id: Long
+    _ids: [Long]
+    filter: _ProteinFilter
+    first: Int
+    # id of Protein
+    id: ID
+    # ids is list variant of id of Protein
+    ids: [ID]
+    # name of Protein
+    name: String
+    # names is list variant of name of Protein
+    names: [String]
+    offset: Int
+    orderBy: [_ProteinOrdering]
+    # synonyms of Protein
+    synonyms: [String]
+    # synonymss is list variant of synonyms of Protein
+    synonymss: [[String]]
+  ): [Protein]!
+}
+
+# Polypeptide-Node
+type Polypeptide implements NamedEntity {
+  # internal node id
+  _id: Long
+  # accessionNumber of  Polypeptide
+  accessionNumber: String!
+  # Polypeptide gene Gene
+  gene(
+    # chromosome of Gene
+    chromosome: String
+    # chromosomes is list variant of chromosome of Gene
+    chromosomes: [String]
+    # end of Gene
+    end: Int
+    # ends is list variant of end of Gene
+    ends: [Int]
+    filter: _GeneFilter
+    # id of Gene
+    id: ID
+    # ids is list variant of id of Gene
+    ids: [ID]
+    # name of Gene
+    name: String
+    # names is list variant of name of Gene
+    names: [String]
+    orderBy: [_GeneOrdering]
+    # start of Gene
+    start: Int
+    # starts is list variant of start of Gene
+    starts: [Int]
+    # statement of Gene
+    statement: String
+    # statements is list variant of statement of Gene
+    statements: [String]
+    # strand of Gene
+    strand: Strand
+    # strands is list variant of strand of Gene
+    strands: [Strand]
+  ): Gene!
+  # id of  Polypeptide
+  id: ID!
+  # name of  Polypeptide
+  name: String!
+  # Polypeptide transcript Isoform
+  transcript(
+    filter: _IsoformFilter
+    # id of Isoform
+    id: ID
+    # ids is list variant of id of Isoform
+    ids: [ID]
+    # name of Isoform
+    name: String
+    # names is list variant of name of Isoform
+    names: [String]
+    orderBy: [_IsoformOrdering]
+  ): Isoform!
+  # uniprot_id of  Polypeptide
+  uniprot_id: String!
+}
+
+# Protein-Node
+type Protein implements NamedEntity {
+  # internal node id
+  _id: Long
+  # Protein asTarget ProteinTarget
+  asTarget(
+    _id: Long
+    _ids: [Long]
+    filter: _ProteinTargetFilter
+    first: Int
+    # id of ProteinTarget
+    id: ID
+    # ids is list variant of id of ProteinTarget
+    ids: [ID]
+    # name of ProteinTarget
+    name: String
+    # names is list variant of name of ProteinTarget
+    names: [String]
+    offset: Int
+    orderBy: [_ProteinTargetOrdering]
+  ): [ProteinTarget!]!
+  # id of  Protein
+  id: ID!
+  # Protein location SubcellularLocationWithEvidence
+  location(
+    _id: Long
+    _ids: [Long]
+    filter: _SubcellularLocationWithEvidenceFilter
+    first: Int
+    # id of SubcellularLocationWithEvidence
+    id: ID
+    # ids is list variant of id of SubcellularLocationWithEvidence
+    ids: [ID]
+    offset: Int
+    orderBy: [_SubcellularLocationWithEvidenceOrdering]
+    # statement of SubcellularLocationWithEvidence
+    statement: String
+    # statements is list variant of statement of SubcellularLocationWithEvidence
+    statements: [String]
+  ): [SubcellularLocationWithEvidence]!
+  # name of  Protein
+  name: String!
+  # Protein pathways Pathway
+  pathways(
+    _id: Long
+    _ids: [Long]
+    filter: _PathwayFilter
+    first: Int
+    # id of Pathway
+    id: ID
+    # ids is list variant of id of Pathway
+    ids: [ID]
+    # name of Pathway
+    name: String
+    # names is list variant of name of Pathway
+    names: [String]
+    offset: Int
+    orderBy: [_PathwayOrdering]
+  ): [Pathway]!
+  # Protein phenotype ImmunePhenotype
+  phenotype(
+    filter: _ImmunePhenotypeFilter
+    # id of ImmunePhenotype
+    id: ID
+    # ids is list variant of id of ImmunePhenotype
+    ids: [ID]
+    # name of ImmunePhenotype
+    name: String
+    # names is list variant of name of ImmunePhenotype
+    names: [String]
+    orderBy: [_ImmunePhenotypeOrdering]
+  ): ImmunePhenotype
+  # Protein polypeptide_chains Polypeptide
+  polypeptide_chains(
+    _id: Long
+    _ids: [Long]
+    # accessionNumber of Polypeptide
+    accessionNumber: String
+    # accessionNumbers is list variant of accessionNumber of Polypeptide
+    accessionNumbers: [String]
+    filter: _PolypeptideFilter
+    first: Int
+    # id of Polypeptide
+    id: ID
+    # ids is list variant of id of Polypeptide
+    ids: [ID]
+    # name of Polypeptide
+    name: String
+    # names is list variant of name of Polypeptide
+    names: [String]
+    offset: Int
+    orderBy: [_PolypeptideOrdering]
+    # uniprot_id of Polypeptide
+    uniprot_id: String
+    # uniprot_ids is list variant of uniprot_id of Polypeptide
+    uniprot_ids: [String]
+  ): [Polypeptide]!
+  # synonyms of  Protein
+  synonyms: [String]!
+  # Protein variants VariantTarget
+  variants(
+    _id: Long
+    _ids: [Long]
+    filter: _VariantTargetFilter
+    first: Int
+    # id of VariantTarget
+    id: ID
+    # ids is list variant of id of VariantTarget
+    ids: [ID]
+    # name of VariantTarget
+    name: String
+    # names is list variant of name of VariantTarget
+    names: [String]
+    offset: Int
+    orderBy: [_VariantTargetOrdering]
+  ): [VariantTarget!]!
+}
+
+# ProteinTarget-Node
+type ProteinTarget implements Target {
+  # internal node id
+  _id: Long
+  # ProteinTarget drugs Drug
+  drugs(
+    _id: Long
+    _ids: [Long]
+    # annotationDate of Drug
+    annotationDate: String
+    # annotationDates is list variant of annotationDate of Drug
+    annotationDates: [String]
+    # concept of Drug
+    concept: String
+    # concepts is list variant of concept of Drug
+    concepts: [String]
+    # definition of Drug
+    definition: String
+    # definitions is list variant of definition of Drug
+    definitions: [String]
+    # drugCategory of Drug
+    drugCategory: String
+    # drugCategorys is list variant of drugCategory of Drug
+    drugCategorys: [String]
+    filter: _DrugFilter
+    first: Int
+    # id of Drug
+    id: ID
+    # ids is list variant of id of Drug
+    ids: [ID]
+    # isAntineoplastic of Drug
+    isAntineoplastic: Boolean
+    # isAntineoplastics is list variant of isAntineoplastic of Drug
+    isAntineoplastics: [Boolean]
+    # isImmuno of Drug
+    isImmuno: Boolean
+    # isImmunos is list variant of isImmuno of Drug
+    isImmunos: [Boolean]
+    # modulator of Drug
+    modulator: String
+    # modulators is list variant of modulator of Drug
+    modulators: [String]
+    # name of Drug
+    name: String
+    # names is list variant of name of Drug
+    names: [String]
+    offset: Int
+    orderBy: [_DrugOrdering]
+    # synonyms of Drug
+    synonyms: [String]
+    # synonymss is list variant of synonyms of Drug
+    synonymss: [[String]]
+  ): [Drug]!
+  # id of  ProteinTarget
+  id: ID!
+  # name of  ProteinTarget
+  name: String!
+  # ProteinTarget protein Protein
+  protein(
+    filter: _ProteinFilter
+    # id of Protein
+    id: ID
+    # ids is list variant of id of Protein
+    ids: [ID]
+    # name of Protein
+    name: String
+    # names is list variant of name of Protein
+    names: [String]
+    orderBy: [_ProteinOrdering]
+    # synonyms of Protein
+    synonyms: [String]
+    # synonymss is list variant of synonyms of Protein
+    synonymss: [[String]]
+  ): Protein!
+}
+
+type QueryType {
+  Author(
+    _id: Long
+    _ids: [Long]
+    filter: _AuthorFilter
+    first: Int
+    # first_initial of Author
+    first_initial: String
+    # first_initials is list variant of first_initial of Author
+    first_initials: [String]
+    # id of Author
+    id: ID
+    # ids is list variant of id of Author
+    ids: [ID]
+    # middle_initial of Author
+    middle_initial: String
+    # middle_initials is list variant of middle_initial of Author
+    middle_initials: [String]
+    offset: Int
+    orderBy: [_AuthorOrdering]
+    # surname of Author
+    surname: String
+    # surnames is list variant of surname of Author
+    surnames: [String]
+  ): [Author]
+  Drug(
+    _id: Long
+    _ids: [Long]
+    # annotationDate of Drug
+    annotationDate: String
+    # annotationDates is list variant of annotationDate of Drug
+    annotationDates: [String]
+    # concept of Drug
+    concept: String
+    # concepts is list variant of concept of Drug
+    concepts: [String]
+    # definition of Drug
+    definition: String
+    # definitions is list variant of definition of Drug
+    definitions: [String]
+    # drugCategory of Drug
+    drugCategory: String
+    # drugCategorys is list variant of drugCategory of Drug
+    drugCategorys: [String]
+    filter: _DrugFilter
+    first: Int
+    # id of Drug
+    id: ID
+    # ids is list variant of id of Drug
+    ids: [ID]
+    # isAntineoplastic of Drug
+    isAntineoplastic: Boolean
+    # isAntineoplastics is list variant of isAntineoplastic of Drug
+    isAntineoplastics: [Boolean]
+    # isImmuno of Drug
+    isImmuno: Boolean
+    # isImmunos is list variant of isImmuno of Drug
+    isImmunos: [Boolean]
+    # modulator of Drug
+    modulator: String
+    # modulators is list variant of modulator of Drug
+    modulators: [String]
+    # name of Drug
+    name: String
+    # names is list variant of name of Drug
+    names: [String]
+    offset: Int
+    orderBy: [_DrugOrdering]
+    # synonyms of Drug
+    synonyms: [String]
+    # synonymss is list variant of synonyms of Drug
+    synonymss: [[String]]
+  ): [Drug]
+  Gene(
+    _id: Long
+    _ids: [Long]
+    # chromosome of Gene
+    chromosome: String
+    # chromosomes is list variant of chromosome of Gene
+    chromosomes: [String]
+    # end of Gene
+    end: Int
+    # ends is list variant of end of Gene
+    ends: [Int]
+    filter: _GeneFilter
+    first: Int
+    # id of Gene
+    id: ID
+    # ids is list variant of id of Gene
+    ids: [ID]
+    # name of Gene
+    name: String
+    # names is list variant of name of Gene
+    names: [String]
+    offset: Int
+    orderBy: [_GeneOrdering]
+    # start of Gene
+    start: Int
+    # starts is list variant of start of Gene
+    starts: [Int]
+    # statement of Gene
+    statement: String
+    # statements is list variant of statement of Gene
+    statements: [String]
+    # strand of Gene
+    strand: Strand
+    # strands is list variant of strand of Gene
+    strands: [Strand]
+  ): [Gene]
+  ImmunePhenotype(
+    _id: Long
+    _ids: [Long]
+    filter: _ImmunePhenotypeFilter
+    first: Int
+    # id of ImmunePhenotype
+    id: ID
+    # ids is list variant of id of ImmunePhenotype
+    ids: [ID]
+    # name of ImmunePhenotype
+    name: String
+    # names is list variant of name of ImmunePhenotype
+    names: [String]
+    offset: Int
+    orderBy: [_ImmunePhenotypeOrdering]
+  ): [ImmunePhenotype]
+  InternetReference(
+    _id: Long
+    _ids: [Long]
+    # accessed_date of InternetReference
+    accessed_date: String
+    # accessed_dates is list variant of accessed_date of InternetReference
+    accessed_dates: [String]
+    filter: _InternetReferenceFilter
+    first: Int
+    # id of InternetReference
+    id: ID
+    # ids is list variant of id of InternetReference
+    ids: [ID]
+    offset: Int
+    orderBy: [_InternetReferenceOrdering]
+    # shortReference of InternetReference
+    shortReference: String
+    # shortReferences is list variant of shortReference of InternetReference
+    shortReferences: [String]
+    # web_address of InternetReference
+    web_address: String
+    # web_addresss is list variant of web_address of InternetReference
+    web_addresss: [String]
+  ): [InternetReference]
+  Isoform(
+    _id: Long
+    _ids: [Long]
+    filter: _IsoformFilter
+    first: Int
+    # id of Isoform
+    id: ID
+    # ids is list variant of id of Isoform
+    ids: [ID]
+    # name of Isoform
+    name: String
+    # names is list variant of name of Isoform
+    names: [String]
+    offset: Int
+    orderBy: [_IsoformOrdering]
+  ): [Isoform]
+  Journal(
+    _id: Long
+    _ids: [Long]
+    filter: _JournalFilter
+    first: Int
+    # id of Journal
+    id: ID
+    # ids is list variant of id of Journal
+    ids: [ID]
+    # name of Journal
+    name: String
+    # names is list variant of name of Journal
+    names: [String]
+    offset: Int
+    orderBy: [_JournalOrdering]
+  ): [Journal]
+  LiteratureReference(
+    # DOI of LiteratureReference
+    DOI: String
+    # DOIs is list variant of DOI of LiteratureReference
+    DOIs: [String]
+    # PMID of LiteratureReference
+    PMID: String
+    # PMIDs is list variant of PMID of LiteratureReference
+    PMIDs: [String]
+    _id: Long
+    _ids: [Long]
+    filter: _LiteratureReferenceFilter
+    first: Int
+    # first_page of LiteratureReference
+    first_page: String
+    # first_pages is list variant of first_page of LiteratureReference
+    first_pages: [String]
+    # id of LiteratureReference
+    id: ID
+    # ids is list variant of id of LiteratureReference
+    ids: [ID]
+    # last_page of LiteratureReference
+    last_page: String
+    # last_pages is list variant of last_page of LiteratureReference
+    last_pages: [String]
+    offset: Int
+    orderBy: [_LiteratureReferenceOrdering]
+    # publication_Year of LiteratureReference
+    publication_Year: String
+    # publication_Years is list variant of publication_Year of LiteratureReference
+    publication_Years: [String]
+    # shortReference of LiteratureReference
+    shortReference: String
+    # shortReferences is list variant of shortReference of LiteratureReference
+    shortReferences: [String]
+    # title of LiteratureReference
+    title: String
+    # titles is list variant of title of LiteratureReference
+    titles: [String]
+    # volume of LiteratureReference
+    volume: String
+    # volumes is list variant of volume of LiteratureReference
+    volumes: [String]
+  ): [LiteratureReference]
+  NamedEntity(
+    _id: Long
+    _ids: [Long]
+    filter: _NamedEntityFilter
+    first: Int
+    # id of NamedEntity
+    id: ID
+    # ids is list variant of id of NamedEntity
+    ids: [ID]
+    # name of NamedEntity
+    name: String
+    # names is list variant of name of NamedEntity
+    names: [String]
+    offset: Int
+    orderBy: [_NamedEntityOrdering]
+  ): [NamedEntity]
+  Pathway(
+    _id: Long
+    _ids: [Long]
+    filter: _PathwayFilter
+    first: Int
+    # id of Pathway
+    id: ID
+    # ids is list variant of id of Pathway
+    ids: [ID]
+    # name of Pathway
+    name: String
+    # names is list variant of name of Pathway
+    names: [String]
+    offset: Int
+    orderBy: [_PathwayOrdering]
+  ): [Pathway]
+  Polypeptide(
+    _id: Long
+    _ids: [Long]
+    # accessionNumber of Polypeptide
+    accessionNumber: String
+    # accessionNumbers is list variant of accessionNumber of Polypeptide
+    accessionNumbers: [String]
+    filter: _PolypeptideFilter
+    first: Int
+    # id of Polypeptide
+    id: ID
+    # ids is list variant of id of Polypeptide
+    ids: [ID]
+    # name of Polypeptide
+    name: String
+    # names is list variant of name of Polypeptide
+    names: [String]
+    offset: Int
+    orderBy: [_PolypeptideOrdering]
+    # uniprot_id of Polypeptide
+    uniprot_id: String
+    # uniprot_ids is list variant of uniprot_id of Polypeptide
+    uniprot_ids: [String]
+  ): [Polypeptide]
+  Protein(
+    _id: Long
+    _ids: [Long]
+    filter: _ProteinFilter
+    first: Int
+    # id of Protein
+    id: ID
+    # ids is list variant of id of Protein
+    ids: [ID]
+    # name of Protein
+    name: String
+    # names is list variant of name of Protein
+    names: [String]
+    offset: Int
+    orderBy: [_ProteinOrdering]
+    # synonyms of Protein
+    synonyms: [String]
+    # synonymss is list variant of synonyms of Protein
+    synonymss: [[String]]
+  ): [Protein]
+  ProteinTarget(
+    _id: Long
+    _ids: [Long]
+    filter: _ProteinTargetFilter
+    first: Int
+    # id of ProteinTarget
+    id: ID
+    # ids is list variant of id of ProteinTarget
+    ids: [ID]
+    # name of ProteinTarget
+    name: String
+    # names is list variant of name of ProteinTarget
+    names: [String]
+    offset: Int
+    orderBy: [_ProteinTargetOrdering]
+  ): [ProteinTarget]
+  Reference(
+    _id: Long
+    _ids: [Long]
+    filter: _ReferenceFilter
+    first: Int
+    # id of Reference
+    id: ID
+    # ids is list variant of id of Reference
+    ids: [ID]
+    offset: Int
+    orderBy: [_ReferenceOrdering]
+    # shortReference of Reference
+    shortReference: String
+    # shortReferences is list variant of shortReference of Reference
+    shortReferences: [String]
+  ): [Reference]
+  StatementWithEvidence(
+    _id: Long
+    _ids: [Long]
+    filter: _StatementWithEvidenceFilter
+    first: Int
+    # id of StatementWithEvidence
+    id: ID
+    # ids is list variant of id of StatementWithEvidence
+    ids: [ID]
+    offset: Int
+    orderBy: [_StatementWithEvidenceOrdering]
+    # statement of StatementWithEvidence
+    statement: String
+    # statements is list variant of statement of StatementWithEvidence
+    statements: [String]
+  ): [StatementWithEvidence]
+  SubcellularLocation(
+    _id: Long
+    _ids: [Long]
+    filter: _SubcellularLocationFilter
+    first: Int
+    # id of SubcellularLocation
+    id: ID
+    # ids is list variant of id of SubcellularLocation
+    ids: [ID]
+    # name of SubcellularLocation
+    name: String
+    # names is list variant of name of SubcellularLocation
+    names: [String]
+    offset: Int
+    orderBy: [_SubcellularLocationOrdering]
+  ): [SubcellularLocation]
+  SubcellularLocationWithEvidence(
+    _id: Long
+    _ids: [Long]
+    filter: _SubcellularLocationWithEvidenceFilter
+    first: Int
+    # id of SubcellularLocationWithEvidence
+    id: ID
+    # ids is list variant of id of SubcellularLocationWithEvidence
+    ids: [ID]
+    offset: Int
+    orderBy: [_SubcellularLocationWithEvidenceOrdering]
+    # statement of SubcellularLocationWithEvidence
+    statement: String
+    # statements is list variant of statement of SubcellularLocationWithEvidence
+    statements: [String]
+  ): [SubcellularLocationWithEvidence]
+  Target(
+    _id: Long
+    _ids: [Long]
+    filter: _TargetFilter
+    first: Int
+    # id of Target
+    id: ID
+    # ids is list variant of id of Target
+    ids: [ID]
+    # name of Target
+    name: String
+    # names is list variant of name of Target
+    names: [String]
+    offset: Int
+    orderBy: [_TargetOrdering]
+  ): [Target]
+  VariantTarget(
+    _id: Long
+    _ids: [Long]
+    filter: _VariantTargetFilter
+    first: Int
+    # id of VariantTarget
+    id: ID
+    # ids is list variant of id of VariantTarget
+    ids: [ID]
+    # name of VariantTarget
+    name: String
+    # names is list variant of name of VariantTarget
+    names: [String]
+    offset: Int
+    orderBy: [_VariantTargetOrdering]
+  ): [VariantTarget]
+}
+
+# Reference-Node
+interface Reference {
+  # internal node id
+  _id: Long
+  # id of  Reference
+  id: ID!
+  # shortReference of  Reference
+  shortReference: String!
+  # Reference statements_referenced StatementWithEvidence
+  statements_referenced(
+    _id: Long
+    _ids: [Long]
+    filter: _StatementWithEvidenceFilter
+    first: Int
+    # id of StatementWithEvidence
+    id: ID
+    # ids is list variant of id of StatementWithEvidence
+    ids: [ID]
+    offset: Int
+    orderBy: [_StatementWithEvidenceOrdering]
+    # statement of StatementWithEvidence
+    statement: String
+    # statements is list variant of statement of StatementWithEvidence
+    statements: [String]
+  ): [StatementWithEvidence!]!
+}
+
+# StatementWithEvidence-Node
+interface StatementWithEvidence {
+  # internal node id
+  _id: Long
+  # id of  StatementWithEvidence
+  id: ID!
+  # statement of  StatementWithEvidence
+  statement: String!
+}
+
+# Enum for Strand
+enum Strand {
+  # Value for FORWARD
+  FORWARD
+  # Value for REVERSE
+  REVERSE
+}
+
+# SubcellularLocation-Node
+type SubcellularLocation implements NamedEntity {
+  # internal node id
+  _id: Long
+  # SubcellularLocation evidence SubcellularLocationWithEvidence
+  evidence(
+    _id: Long
+    _ids: [Long]
+    filter: _SubcellularLocationWithEvidenceFilter
+    first: Int
+    # id of SubcellularLocationWithEvidence
+    id: ID
+    # ids is list variant of id of SubcellularLocationWithEvidence
+    ids: [ID]
+    offset: Int
+    orderBy: [_SubcellularLocationWithEvidenceOrdering]
+    # statement of SubcellularLocationWithEvidence
+    statement: String
+    # statements is list variant of statement of SubcellularLocationWithEvidence
+    statements: [String]
+  ): [SubcellularLocationWithEvidence]!
+  # id of  SubcellularLocation
+  id: ID!
+  # name of  SubcellularLocation
+  name: String!
+}
+
+# SubcellularLocationWithEvidence-Node
+type SubcellularLocationWithEvidence implements StatementWithEvidence {
+  # internal node id
+  _id: Long
+  # id of  SubcellularLocationWithEvidence
+  id: ID!
+  # SubcellularLocationWithEvidence location SubcellularLocation
+  location(
+    filter: _SubcellularLocationFilter
+    # id of SubcellularLocation
+    id: ID
+    # ids is list variant of id of SubcellularLocation
+    ids: [ID]
+    # name of SubcellularLocation
+    name: String
+    # names is list variant of name of SubcellularLocation
+    names: [String]
+    orderBy: [_SubcellularLocationOrdering]
+  ): SubcellularLocation!
+  # SubcellularLocationWithEvidence protein Protein
+  protein(
+    filter: _ProteinFilter
+    # id of Protein
+    id: ID
+    # ids is list variant of id of Protein
+    ids: [ID]
+    # name of Protein
+    name: String
+    # names is list variant of name of Protein
+    names: [String]
+    orderBy: [_ProteinOrdering]
+    # synonyms of Protein
+    synonyms: [String]
+    # synonymss is list variant of synonyms of Protein
+    synonymss: [[String]]
+  ): Protein!
+  # SubcellularLocationWithEvidence reference LiteratureReference
+  reference(
+    # DOI of LiteratureReference
+    DOI: String
+    # DOIs is list variant of DOI of LiteratureReference
+    DOIs: [String]
+    # PMID of LiteratureReference
+    PMID: String
+    # PMIDs is list variant of PMID of LiteratureReference
+    PMIDs: [String]
+    _id: Long
+    _ids: [Long]
+    filter: _LiteratureReferenceFilter
+    first: Int
+    # first_page of LiteratureReference
+    first_page: String
+    # first_pages is list variant of first_page of LiteratureReference
+    first_pages: [String]
+    # id of LiteratureReference
+    id: ID
+    # ids is list variant of id of LiteratureReference
+    ids: [ID]
+    # last_page of LiteratureReference
+    last_page: String
+    # last_pages is list variant of last_page of LiteratureReference
+    last_pages: [String]
+    offset: Int
+    orderBy: [_LiteratureReferenceOrdering]
+    # publication_Year of LiteratureReference
+    publication_Year: String
+    # publication_Years is list variant of publication_Year of LiteratureReference
+    publication_Years: [String]
+    # shortReference of LiteratureReference
+    shortReference: String
+    # shortReferences is list variant of shortReference of LiteratureReference
+    shortReferences: [String]
+    # title of LiteratureReference
+    title: String
+    # titles is list variant of title of LiteratureReference
+    titles: [String]
+    # volume of LiteratureReference
+    volume: String
+    # volumes is list variant of volume of LiteratureReference
+    volumes: [String]
+  ): [LiteratureReference]!
+  # statement of  SubcellularLocationWithEvidence
+  statement: String!
+}
+
+# Target-Node
+interface Target {
+  # internal node id
+  _id: Long
+  # Target drugs Drug
+  drugs(
+    _id: Long
+    _ids: [Long]
+    # annotationDate of Drug
+    annotationDate: String
+    # annotationDates is list variant of annotationDate of Drug
+    annotationDates: [String]
+    # concept of Drug
+    concept: String
+    # concepts is list variant of concept of Drug
+    concepts: [String]
+    # definition of Drug
+    definition: String
+    # definitions is list variant of definition of Drug
+    definitions: [String]
+    # drugCategory of Drug
+    drugCategory: String
+    # drugCategorys is list variant of drugCategory of Drug
+    drugCategorys: [String]
+    filter: _DrugFilter
+    first: Int
+    # id of Drug
+    id: ID
+    # ids is list variant of id of Drug
+    ids: [ID]
+    # isAntineoplastic of Drug
+    isAntineoplastic: Boolean
+    # isAntineoplastics is list variant of isAntineoplastic of Drug
+    isAntineoplastics: [Boolean]
+    # isImmuno of Drug
+    isImmuno: Boolean
+    # isImmunos is list variant of isImmuno of Drug
+    isImmunos: [Boolean]
+    # modulator of Drug
+    modulator: String
+    # modulators is list variant of modulator of Drug
+    modulators: [String]
+    # name of Drug
+    name: String
+    # names is list variant of name of Drug
+    names: [String]
+    offset: Int
+    orderBy: [_DrugOrdering]
+    # synonyms of Drug
+    synonyms: [String]
+    # synonymss is list variant of synonyms of Drug
+    synonymss: [[String]]
+  ): [Drug]!
+  # id of  Target
+  id: ID!
+  # name of  Target
+  name: String!
+}
+
+# VariantTarget-Node
+type VariantTarget implements Target {
+  # internal node id
+  _id: Long
+  # VariantTarget drugs Drug
+  drugs(
+    _id: Long
+    _ids: [Long]
+    # annotationDate of Drug
+    annotationDate: String
+    # annotationDates is list variant of annotationDate of Drug
+    annotationDates: [String]
+    # concept of Drug
+    concept: String
+    # concepts is list variant of concept of Drug
+    concepts: [String]
+    # definition of Drug
+    definition: String
+    # definitions is list variant of definition of Drug
+    definitions: [String]
+    # drugCategory of Drug
+    drugCategory: String
+    # drugCategorys is list variant of drugCategory of Drug
+    drugCategorys: [String]
+    filter: _DrugFilter
+    first: Int
+    # id of Drug
+    id: ID
+    # ids is list variant of id of Drug
+    ids: [ID]
+    # isAntineoplastic of Drug
+    isAntineoplastic: Boolean
+    # isAntineoplastics is list variant of isAntineoplastic of Drug
+    isAntineoplastics: [Boolean]
+    # isImmuno of Drug
+    isImmuno: Boolean
+    # isImmunos is list variant of isImmuno of Drug
+    isImmunos: [Boolean]
+    # modulator of Drug
+    modulator: String
+    # modulators is list variant of modulator of Drug
+    modulators: [String]
+    # name of Drug
+    name: String
+    # names is list variant of name of Drug
+    names: [String]
+    offset: Int
+    orderBy: [_DrugOrdering]
+    # synonyms of Drug
+    synonyms: [String]
+    # synonymss is list variant of synonyms of Drug
+    synonymss: [[String]]
+  ): [Drug]!
+  # id of  VariantTarget
+  id: ID!
+  # name of  VariantTarget
+  name: String!
+  # VariantTarget protein Protein
+  protein(
+    filter: _ProteinFilter
+    # id of Protein
+    id: ID
+    # ids is list variant of id of Protein
+    ids: [ID]
+    # name of Protein
+    name: String
+    # names is list variant of name of Protein
+    names: [String]
+    orderBy: [_ProteinOrdering]
+    # synonyms of Protein
+    synonyms: [String]
+    # synonymss is list variant of synonyms of Protein
+    synonymss: [[String]]
+  ): Protein!
+}
+

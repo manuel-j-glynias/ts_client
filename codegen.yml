@@ -1,0 +1,11 @@
+overwrite: true
+schema: "/Users/mglynias/WebstormProjects/ts_client/graphql-typescript-react/src/schema.graphql"
+documents: "./src/components/**/*.{ts,tsx}"
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      withHooks: true
