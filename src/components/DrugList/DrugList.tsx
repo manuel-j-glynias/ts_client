@@ -5,7 +5,10 @@ import './styles.css'
 
 
 export interface OwnProps {
+    query_str: string;
+    uquery_str:string
     handleDrugIdChange: (newId: string) => void;
+    set_drug_query_string: (newQueryString: string) => void;
 }
 
 interface Props extends OwnProps {
@@ -14,7 +17,8 @@ interface Props extends OwnProps {
 
 const className = 'DrugList';
 
-const DrugList: React.FC<Props> = ({data,handleDrugIdChange}) => (
+const DrugList: React.FC<Props> = ({data,
+                                       handleDrugIdChange}) => (
     <div className={className}>
         <h3>Drugs</h3>
         <ol className={`${className}__list`}>

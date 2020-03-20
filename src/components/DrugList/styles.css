@@ -1,5 +1,19 @@
+.DrugList__Container {
+    height: 100%;
+    overflow: hidden auto;
+    background-color: #ececec;
+    width: 300px;
+}
+
+.DrugList__Filter {
+    height: 40px;
+    width: 300px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
 .DrugList {
-    height: 100vh;
+    height: 100%;
     overflow: hidden auto;
     background-color: #ececec;
     width: 300px;
@@ -14,8 +28,66 @@
 }
 
 .DrugList__item {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-top: 1px solid #919191;
     cursor: pointer;
+}
+.btn {
+    display: inline-block;
+    background-color: #005198;
+    color: #cccccc;
+    padding: 0.4rem 0.4rem;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    margin-left: 0.4rem;
+    outline: none;
+    transition: all 0.2s ease-in;
+}
+.btn:disabled {
+    text-decoration: line-through;
+}
+.btn.btn-primary {
+    background-color: #005198;
+    color: #fff;
+}
+.btn.btn-primary:hover {
+    background: #1ab6cf;
+}
+.btn.btn-dark {
+    background-color: #343a40;
+    color: #fff;
+}
+.btn.btn-dark:hover {
+    background: #3f474e;
+}
+.btn.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+.btn.btn-success:hover {
+    background: #2dbc4e;
+}
+.btn.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+.btn.btn-danger:hover {
+    background: #e04b59;
+}
+.btn:hover {
+    background: #626d78;
+    color: #fff;
+}
+
+.filter_text_input {
+    text-align: left;
+    width: 150px;
+    padding: 0.3rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    font: inherit;
+    margin-right: 0.5rem;
 }

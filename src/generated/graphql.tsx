@@ -4917,7 +4917,10 @@ export type DrugQuery = (
   )>>> }
 );
 
-export type DrugListQueryVariables = {};
+export type DrugListQueryVariables = {
+  str?: Maybe<Scalars['String']>;
+  ustr?: Maybe<Scalars['String']>;
+};
 
 
 export type DrugListQuery = (
@@ -5097,8 +5100,8 @@ export type DrugQueryHookResult = ReturnType<typeof useDrugQuery>;
 export type DrugLazyQueryHookResult = ReturnType<typeof useDrugLazyQuery>;
 export type DrugQueryResult = ApolloReactCommon.QueryResult<DrugQuery, DrugQueryVariables>;
 export const DrugListDocument = gql`
-    query DrugList {
-  Drug(orderBy: name_asc) {
+    query DrugList($str: String, $ustr: String) {
+  Drug(orderBy: name_asc, filter: {OR: [{name_contains: $str}, {name_contains: $ustr}]}) {
     id
     name
     drugCategory
@@ -5135,6 +5138,8 @@ export function withDrugList<TProps, TChildProps = {}>(operationOptions?: Apollo
  * @example
  * const { data, loading, error } = useDrugListQuery({
  *   variables: {
+ *      str: // value for 'str'
+ *      ustr: // value for 'ustr'
  *   },
  * });
  */

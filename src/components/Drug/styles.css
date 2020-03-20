@@ -2,7 +2,7 @@
     top:0px;
     height: 100vh;
     max-height: 100%;
-    width: 900px;
+    width: 600px;
     overflow: hidden auto;
     padding-left: 20px;
     padding-right: 20px;
@@ -16,7 +16,7 @@
 
 .Drug__Wrapper {
     display: grid;
-    grid-template-columns: 150px 700px;
+    grid-template-columns: 150px 450px;
     grid-row-gap: 10px;
     grid-auto-rows: minmax(30px, auto);
     align-items: center;
